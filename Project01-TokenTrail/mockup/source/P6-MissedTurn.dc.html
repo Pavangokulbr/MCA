@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Missed turn</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 14px; padding: 18px 18px 20px;">
+  <div style="display: flex; flex-direction: column; gap: 2px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="22" height="22" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 16px; font-weight: 700;">TokenTrail</span>
+    </div>
+    <span style="font-size: 13px; color: #4B5563;">City General Hospital · OPD Block B</span>
+  </div>
+
+  <div role="alert" style="background: #FDECEA; border: 1px solid #F1B5AE; color: #7F1D14; border-radius: 20px; padding: 22px 20px; display: flex; flex-direction: column; gap: 10px;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+    <span style="font-size: 26px; font-weight: 700; line-height: 1.15;">You missed your turn</span>
+    <span style="font-size: 15px; line-height: 1.5;">Token <b style="font-family: 'IBM Plex Mono', monospace;">B-047</b> was called at 10:51. The 5-minute window ended at 10:56, so the room moved to the next patient.</span>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+    <span style="font-size: 16px; font-weight: 600;">You haven't lost your visit</span>
+    <div style="display: flex; gap: 14px;">
+      <span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #0A58A8; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;">1</span>
+      <span style="font-size: 15px; line-height: 1.45;">Go to <b>Registration Desk 2</b>, OPD Block B.</span>
+    </div>
+    <div style="display: flex; gap: 14px;">
+      <span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #0A58A8; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;">2</span>
+      <span style="font-size: 15px; line-height: 1.45;">Show this screen. Staff will place you <b>after the patient currently in Room 3</b>.</span>
+    </div>
+    <div style="display: flex; gap: 14px;">
+      <span style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #0A58A8; color: #FFFFFF; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;">3</span>
+      <span style="font-size: 15px; line-height: 1.45;">This page will update with your new position — no new QR needed.</span>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px dashed #9AA4B2; border-radius: 16px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <span style="font-size: 13px; color: #4B5563;">Desk verification code</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 600; letter-spacing: 0.12em;">4 7 2 9</span>
+    </div>
+    <span style="font-size: 13px; color: #4B5563; text-align: right; max-width: 130px;">Valid today until 1:30 PM (OPD close)</span>
+  </div>
+
+  <span style="font-size: 13px; color: #4B5563; line-height: 1.5; padding: 0 4px;">One re-entry per token per day. If you miss the second call, please collect a new token at the desk.</span>
+
+  <a href="#" style="margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px; height: 54px; border-radius: 16px; background: #0A58A8; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    Directions to Desk 2
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

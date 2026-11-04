@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MoodPulse overview</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 1440px; height: 900px; box-sizing: border-box; padding: 60px 72px; background: #C8F55A; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 30px;">
+  <svg aria-hidden="true" width="220" height="220" viewBox="0 0 120 120" style="position: absolute; right: 60px; top: 40px;"><path d="M60 8l9 34 34 9-34 9-9 34-9-34-34-9 34-9z" fill="#FFFFFF" stroke="#111111" stroke-width="3" stroke-linejoin="round"></path></svg>
+  <svg aria-hidden="true" width="90" height="90" viewBox="0 0 100 100" style="position: absolute; right: 300px; top: 190px;"><circle cx="50" cy="50" r="40" fill="#FF8CC6" stroke="#111111" stroke-width="4"></circle></svg>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 16px; max-width: 860px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true"><rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="#111111"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="font-size: 24px; font-weight: 800;">MoodPulse</span>
+      <span style="font-size: 13px; font-weight: 700; background: #FFFFFF; border: 2px solid #111111; border-radius: 999px; padding: 4px 12px;">Mockup v1 · 4 Nov 2026 · MCA III Sem · Project 02</span>
+    </div>
+    <h1 style="margin: 0; font-size: 72px; line-height: 0.98; font-weight: 800; letter-spacing: -0.035em;">Scan. Tap. Done.</h1>
+    <p style="margin: 0; font-size: 20px; line-height: 1.5; max-width: 760px;">One QR on every desk. Students tap one of five moods, anonymously. Faculty see how each lecture lands, minute by minute, and management sees trends by room and time slot.</p>
+  </div>
+
+  <div style="position: relative; background: #FFFFFF; border: 2px solid #111111; box-shadow: 6px 6px 0 #111111; border-radius: 26px; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 20px;">
+      <span style="font-size: 14px; font-weight: 800;">The only five answers — always labelled, never colour alone</span>
+      <span style="font-size: 13px;">+ optional pace: Too fast · Just right · Too slow</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;">
+      <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+        <div style="display: flex; align-items: center; gap: 12px; border: 2px solid #111111; border-radius: 18px; padding: 8px 12px 8px 8px;">
+          <span style="width: 48px; height: 48px; border-radius: 14px; background: {{m.tile}}; display: flex; align-items: center; justify-content: center;">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="#FFFFFF" stroke="#111111" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="9" cy="10" r="1" fill="#111111" stroke="none"></circle><circle cx="15" cy="10" r="1" fill="#111111" stroke="none"></circle><path d="{{m.mouth}}" fill="none"></path><path d="{{m.brow}}" fill="none"></path></svg>
+          </span>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 17px; font-weight: 800;">{{m.label}}</span>
+            <span style="font-size: 12px;">{{m.hex}}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; flex-grow: 1;">
+    <div style="background: #FFE45C; border: 2px solid #111111; border-radius: 26px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+      <span style="align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.04em; color: #FFFFFF; background: #111111; border-radius: 999px; padding: 4px 10px;">STUDENT · NO LOGIN</span>
+      <span style="font-size: 16px; line-height: 1.5;">M1 Pick mood → M2 Add pace → M3 Recorded. Edge states: M4 cooldown, M5 no lecture.</span>
+      <span style="font-size: 14px; font-weight: 700; margin-top: auto;">Under 5 seconds, scan to sent.</span>
+    </div>
+    <div style="background: #FF8CC6; border: 2px solid #111111; border-radius: 26px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+      <span style="align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.04em; color: #FFFFFF; background: #111111; border-radius: 999px; padding: 4px 10px;">FACULTY</span>
+      <span style="font-size: 16px; line-height: 1.5;">F1 Sign in → F2 Today → F3 Lecture timeline → F4 Course trend.</span>
+      <span style="font-size: 14px; font-weight: 700; margin-top: auto;">Topic markers turn moods into teaching insight.</span>
+    </div>
+    <div style="background: #6FD3FF; border: 2px solid #111111; border-radius: 26px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+      <span style="align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.04em; color: #FFFFFF; background: #111111; border-radius: 999px; padding: 4px 10px;">MANAGEMENT</span>
+      <span style="font-size: 16px; line-height: 1.5;">A1 Slot heatmap · A2 Classrooms &amp; QR · A3 Timetable · A4 Desk card.</span>
+      <span style="font-size: 14px; font-weight: 700; margin-top: auto;">Rooms and slots — never a faculty leaderboard.</span>
+    </div>
+  </div>
+
+  <div style="position: relative; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 13px; font-weight: 700;">
+    <span style="background: #C8F55A; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Lime #C8F55A</span>
+    <span style="background: #FFE45C; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Yellow #FFE45C</span>
+    <span style="background: #FF8CC6; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Pink #FF8CC6</span>
+    <span style="background: #6FD3FF; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Sky #6FD3FF</span>
+    <span style="background: #B9A4FF; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Lilac #B9A4FF</span>
+    <span style="background: #111111; color: #FFFFFF; border: 2px solid #111111; border-radius: 999px; padding: 5px 12px;">Ink #111111 · buttons, outlines, text</span>
+    <span style="font-weight: 500;">Plus Jakarta Sans 800 headlines · black text on every colour (≥ 9:1)</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const moods = [
+      { label: 'Lost', tile: '#C2410C', hex: '#C2410C', mouth: 'M8 16.5c1.2-1.6 2.5-2.2 4-2.2s2.8.6 4 2.2', brow: 'M7.5 7.2l2.6 1M16.5 7.2l-2.6 1' },
+      { label: 'Confused', tile: '#F08C2E', hex: '#F08C2E', mouth: 'M8 15.5c.9-.8 1.8-.8 2.7 0s1.8.8 2.6 0 1.8-.8 2.7 0', brow: 'M14 7.4l2.6-.6' },
+      { label: 'Okay', tile: '#B9B5C4', hex: '#B9B5C4', mouth: 'M8.5 15h7', brow: '' },
+      { label: 'Following', tile: '#5E8FEA', hex: '#5E8FEA', mouth: 'M8 14c1.2 1.4 2.5 2 4 2s2.8-.6 4-2', brow: '' },
+      { label: 'Engaged', tile: '#1F4FBF', hex: '#1F4FBF', mouth: 'M7.5 13.5c1.2 2.2 2.8 3.2 4.5 3.2s3.3-1 4.5-3.2', brow: 'M7.8 7.4c.8-.6 1.7-.6 2.4 0M13.8 7.4c.8-.6 1.7-.6 2.4 0' }
+    ];
+    return { moods };
+  }
+}
+</script>
+</body>
+</html>

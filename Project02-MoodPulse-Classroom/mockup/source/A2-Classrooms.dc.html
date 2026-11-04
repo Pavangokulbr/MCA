@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Classrooms and QR codes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#333333}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #FFF6DC; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="background: #FFFFFF; border-bottom: 2px solid #111111; padding: 12px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true"><rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="#111111"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-size: 17px; font-weight: 800;">MoodPulse</span>
+        <span style="font-size: 12px; font-weight: 800; background: #6FD3FF; border: 2px solid #111111; border-radius: 999px; padding: 2px 10px;">Management</span>
+      </div>
+      <nav aria-label="Management" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px; font-weight: 700;">
+        <a href="A1-DeptOverview.dc.html" style="padding: 7px 14px; border-radius: 999px; border: 2px solid transparent; text-decoration: none;">Overview</a>
+        <a href="A2-Classrooms.dc.html" aria-current="page" style="padding: 7px 14px; border-radius: 999px; background: #C8F55A; border: 2px solid #111111; text-decoration: none;">Classrooms &amp; QR</a>
+        <a href="A3-Timetable.dc.html" style="padding: 7px 14px; border-radius: 999px; border: 2px solid transparent; text-decoration: none;">Timetable</a>
+      </nav>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span>Dr. Meenakshi Sundaram · HOD</span>
+      <a href="F1-Login.dc.html" style="font-weight: 700;">Sign out</a>
+    </div>
+  </header>
+
+  <main style="width: 100%; max-width: 1300px; margin: 0 auto; padding: 24px 28px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em;">Classrooms &amp; QR codes</h1>
+        <span style="font-size: 14px;">One fixed QR per room, printed on every desk.</span>
+      </div>
+      <button type="button" style="height: 46px; padding: 0 20px; border-radius: 999px; border: 2px solid #111111; background: #111111; color: #FFFFFF; font: 800 14px 'Plus Jakarta Sans', sans-serif;">+ Add classroom</button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start;">
+      <section style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 2px solid #111111; border-radius: 24px; overflow: hidden;">
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px;">
+            <thead>
+              <tr style="text-align: left; font-size: 13px; background: #FFE45C;">
+                <th style="padding: 12px 20px; font-weight: 800; border-bottom: 2px solid #111111;">Room</th>
+                <th style="padding: 12px; font-weight: 800; border-bottom: 2px solid #111111;">Desks</th>
+                <th style="padding: 12px; font-weight: 800; border-bottom: 2px solid #111111;">QR</th>
+                <th style="padding: 12px; font-weight: 800; border-bottom: 2px solid #111111;">Taps today</th>
+                <th style="padding: 12px; font-weight: 800; border-bottom: 2px solid #111111;">Last tap</th>
+                <th style="padding: 12px 20px; font-weight: 800; border-bottom: 2px solid #111111;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rooms}}" as="r" hint-placeholder-count="6">
+                <tr style="background: {{r.rowBg}};">
+                  <td style="padding: 13px 20px; border-bottom: 1px solid #E8E2CC;"><span style="font-weight: 800;">{{r.name}}</span><br><span style="font-size: 13px;">{{r.where}}</span></td>
+                  <td style="padding: 13px 12px; border-bottom: 1px solid #E8E2CC;">{{r.desks}}</td>
+                  <td style="padding: 13px 12px; border-bottom: 1px solid #E8E2CC;">{{r.qr}}</td>
+                  <td style="padding: 13px 12px; border-bottom: 1px solid #E8E2CC; font-weight: 700;">{{r.taps}}</td>
+                  <td style="padding: 13px 12px; border-bottom: 1px solid #E8E2CC;">{{r.last}}</td>
+                  <td style="padding: 13px 20px; border-bottom: 1px solid #E8E2CC;"><span style="font-size: 12px; font-weight: 800; border: 2px solid #111111; border-radius: 999px; padding: 3px 10px; background: {{r.chip}};">{{r.status}}</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside style="flex: 1 1 340px; max-width: 420px; background: #FFFFFF; border: 2px solid #111111; box-shadow: 6px 6px 0 #111111; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h2 style="margin: 0; font-size: 22px; font-weight: 800;">Room C-204</h2>
+          <span style="font-size: 13px; font-weight: 700;">Block C · 2nd floor</span>
+        </div>
+        <div style="align-self: center; background: #C8F55A; border: 2px solid #111111; border-radius: 20px; padding: 16px;">
+          <div role="img" aria-label="QR code for Room C-204 (placeholder pattern)" style="width: 189px; height: 189px; background: #FFFFFF; padding: 10px; border-radius: 10px; display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); grid-template-rows: repeat(21, minmax(0, 1fr));">
+            <sc-for list="{{qr}}" as="c" hint-placeholder-count="441">
+              <span style="background: {{c.c}};"></span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font-size: 13px;">
+          <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">QR version</span><span>v3 · issued 12 Aug 2026</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Printed cards</span><span>64 of 64 desks</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Mapped classes</span><span>22 slots / week</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Off-schedule scans</span><span>9 this week (blocked)</span></div>
+        </div>
+        <a href="A4-DeskCard.dc.html" style="height: 48px; border-radius: 999px; background: #111111; color: #FFFFFF; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; text-decoration: none;">Print desk cards (A6)</a>
+        <button type="button" style="height: 46px; border-radius: 999px; border: 2px solid #111111; background: #FFFFFF; color: #111111; font: 700 14px 'Plus Jakarta Sans', sans-serif;">Download QR as PNG</button>
+        <button type="button" style="height: 46px; border-radius: 999px; border: 2px solid #111111; background: #FF8CC6; color: #111111; font: 800 14px 'Plus Jakarta Sans', sans-serif;">Regenerate QR…</button>
+        <span style="font-size: 12px; line-height: 1.5;">Regenerating makes every printed card for this room stop working at once. Use it only if the QR has been shared outside the room.</span>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const on = '#C8F55A', off = '#EDE8D6', warn = '#FFE45C';
+    const rooms = [
+      { name: 'C-101', where: 'Block C · Ground', desks: 60, qr: 'v2', taps: 188, last: '10:52', status: 'Active', chip: on },
+      { name: 'C-102', where: 'Block C · Ground', desks: 60, qr: 'v2', taps: 154, last: '10:49', status: 'Active', chip: on },
+      { name: 'C-204', where: 'Block C · 2nd floor', desks: 64, qr: 'v3', taps: 211, last: '10:54', status: 'Active', chip: on, sel: true },
+      { name: 'C-206', where: 'Block C · 2nd floor', desks: 60, qr: 'v1', taps: 97, last: '10:31', status: 'Cards missing: 6', chip: warn },
+      { name: 'Lab 3', where: 'Block C · 3rd floor', desks: 40, qr: '—', taps: 0, last: '—', status: 'Pulse off (lab)', chip: off },
+      { name: 'Seminar Hall', where: 'Block A', desks: 120, qr: 'v1', taps: 0, last: '28 Oct', status: 'Events only', chip: off }
+    ].map((r) => ({ ...r, rowBg: r.sel ? '#FFF6DC' : '#FFFFFF' }));
+    const n = 21, seed = 204, qr = [];
+    const finder = (x, y, cx, cy) => {
+      const dx = x - cx, dy = y - cy;
+      if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return null;
+      return Math.max(Math.abs(dx - 3), Math.abs(dy - 3)) !== 2;
+    };
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+      let v = finder(x, y, 0, 0);
+      if (v === null) v = finder(x, y, n - 7, 0);
+      if (v === null) v = finder(x, y, 0, n - 7);
+      if (v === null) {
+        const sep = (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9);
+        if (sep) v = false;
+        else if (y === 6 || x === 6) v = (x + y) % 2 === 0;
+        else { const h = (Math.imul(x + 1, 73856093) ^ Math.imul(y + 1, 19349663) ^ Math.imul(seed, 83492791)) >>> 0; v = (h % 11) < 5; }
+      }
+      qr.push({ c: v ? '#111111' : '#FFFFFF' });
+    }
+    return { rooms, qr };
+  }
+}
+</script>
+</body>
+</html>
