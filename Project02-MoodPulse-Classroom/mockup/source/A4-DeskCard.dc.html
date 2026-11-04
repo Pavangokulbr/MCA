@@ -34,11 +34,14 @@
   </div>
   <div style="position: relative; display: flex; gap: 6px;">
     <sc-for list="{{tiles}}" as="t" hint-placeholder-count="5">
-      <span style="width: 40px; height: 40px; border-radius: 12px; border: 2px solid #111111; background: {{t}};"></span>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 62px;">
+        <span style="width: 40px; height: 40px; border-radius: 12px; border: 2px solid #111111; background: {{t.c}};"></span>
+        <span style="font-size: 11px; font-weight: 800;">{{t.l}}</span>
+      </div>
     </sc-for>
   </div>
   <div style="position: relative; margin-top: auto; background: #111111; color: #FFFFFF; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px;">
-    <span style="font-size: 15px; font-weight: 800;">100% anonymous. No login. No name.</span>
+    <span style="font-size: 15px; font-weight: 800;">Anonymous by design. No login. No name.</span>
     <span style="font-size: 12px;">Room C-204 · Dept. of Computer Applications · QR v3</span>
   </div>
 </div>
@@ -64,7 +67,7 @@ class Component extends DCLogic {
       }
       qr.push({ c: v ? '#111111' : '#FFFFFF' });
     }
-    return { qr, tiles: ['#C2410C', '#F08C2E', '#B9B5C4', '#5E8FEA', '#1F4FBF'] };
+    return { qr, tiles: [{ c: '#C2410C', l: 'Lost' }, { c: '#F08C2E', l: 'Confused' }, { c: '#B9B5C4', l: 'Okay' }, { c: '#5E8FEA', l: 'Following' }, { c: '#1F4FBF', l: 'Engaged' }] };
   }
 }
 </script>

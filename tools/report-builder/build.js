@@ -79,7 +79,7 @@ function runs(ctx, text, base = {}) {
     if (m.index > last) out.push(new TextRun({ ...b, text: s.slice(last, m.index) }));
     const t = m[0];
     if (t.startsWith('**')) out.push(...runs(ctx, t.slice(2, -2), { ...base, bold: true }));
-    else if (t.startsWith('[[')) { ctx.placeholders.add(t.slice(2, -2)); out.push(new TextRun({ ...b, text: '[' + t.slice(2, -2) + ']', highlight: 'yellow' })); }
+    else if (t.startsWith('[[')) { ctx.placeholders.add(t.slice(2, -2)); out.push(new TextRun({ ...b, text: '[' + t.slice(2, -2) + ']', shading: { type: ShadingType.CLEAR, fill: 'FFFF00', color: 'auto' } })); }
     else if (t.startsWith('`')) out.push(new TextRun({ ...b, text: t.slice(1, -1), font: MONO, size: Math.max(18, (b.size || 24) - 2) }));
     else out.push(...runs(ctx, t.slice(1, -1), { ...base, italics: true }));
     last = m.index + t.length;
@@ -236,16 +236,18 @@ function codeBlock(ctx, c) {
   const out = [];
   if (c.caption) out.push(captionPara(ctx, label, c.caption, { above: true }));
   const lines = String(c.text).replace(/\t/g, '    ').replace(/\n+$/, '').split('\n');
-  lines.forEach((ln, i) => {
+  const paras = lines.map((ln) => {
     if (ln.length > 84) ctx.warn(`code line >84 chars (will wrap) in ${label}: ${ln.slice(0, 40)}...`);
-    out.push(new Paragraph({
-      keepLines: true, keepNext: i < Math.min(lines.length - 1, 3),
-      spacing: { lineRule: AUTO, line: 240, after: 0 },
-      shading: { type: ShadingType.CLEAR, fill: 'F2F2F2', color: 'auto' },
-      border: { top: border('BFBFBF', 4), bottom: border('BFBFBF', 4), left: border('BFBFBF', 4), right: border('BFBFBF', 4) },
-      children: [new TextRun({ font: MONO, size: 18, text: ln.length ? ln : ' ' })],
-    }));
+    return new Paragraph({ keepLines: true, spacing: { lineRule: AUTO, line: 240, after: 0 }, children: [new TextRun({ font: MONO, size: 18, text: ln.length ? ln : ' ' })] });
   });
+  out.push(new Table({
+    width: { size: TEXT_W, type: DXA }, columnWidths: [TEXT_W], layout: TableLayoutType.FIXED, alignment: AlignmentType.CENTER,
+    rows: [new TableRow({ children: [new TableCell({
+      width: { size: TEXT_W, type: DXA }, borders: allBorders('BFBFBF', 4),
+      shading: { type: ShadingType.CLEAR, fill: 'F2F2F2', color: 'auto' },
+      margins: { top: 60, bottom: 60, left: 100, right: 100 }, children: paras,
+    })] })],
+  }));
   out.push(new Paragraph({ spacing: { after: 160 }, children: [] }));
   return out;
 }
