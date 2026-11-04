@@ -1,0 +1,1273 @@
+
+--- PAGE 1 ---
+RETAIL WEBSITE IN MOBILE APP
+MINI PROJECT REPORT
+Submitted by
+SANTHOSH S
+[EA*******010127]
+Under the Guidance of
+Dr.G.Babu
+(Assistant Pr0fessor, Directorate 0f online Education)
+in
+partial fulfillment for the award
+0
+f the degree of
+MASTER OF COMPUTER APPLICATIONS
+DIRECTORATE OF ONLINE EDUCATION
+SRM INSTITUTE OF SCIENCE AND
+TECHNOLOGY
+KATTANKULATHUR- 603 203
+JUNE 2025
+--- PAGE 2 ---
+DIRECTORATE OF ONLINE EDUCATION
+SRM INSTITUTE OF SCIENCE AND
+TECHNOLOGY KATTANKULATHUR – 603 203
+BONAFIDE CERTIFICATE
+This Mini Project Work Report titled “RETAIL WEBSITE IN MOBILE APP”
+SANTHOSH S [EA2332251010127] , who carried out the Mini Project Work under my supervision
+along with the company mentor. Certified further, that to the best of my knowledge the work
+reported herein does not form any other internship report or dissertation based on which a degree or
+award was conferred on an earlier occasion on this or any other candidate.
+--- PAGE 3 ---
+CERTIFICATE OF MINI PROJECT WORK
+This is to certify that SANTHOSH S [EA2*********127] has
+undergone mini project work during the period from 10-02-2025 to 16-05-2025 under
+the guidance of S. Arunkumar.
+This work has been carried out in partial fulfillment of the
+requirements for the award of the degree of MASTER OF COMPUTER APPLICATIONS
+--- PAGE 4 ---
+Abstract
+The thesis g al is t create a m bile applicati n that all ws users to trade pr ducts nline.The
+0 0 0 0 0 0 0
+applicati n’s target user is every ne. The the retical backgr und was c mp sed t pr vide the study
+0 0 0 0 0 0 0 0
+c ncepts and definiti n f React Native, N dejs, M ng DB, REST API, m bile applicati n devel pment,
+0 0 0 0 0 0 0 0 0
+and s ftware devel pment lifecycle m dels. The the retical backgr und pr vides a s lid basis f r the
+0 0 0 0 0 0 0 0
+practical implementati n.
+0
+The practical implementati n part pr vides the planning f r server-side implementati n and the
+0 0 0 0
+devel ping pr cess f server-side and client-side. In this part, the applicati n devel pment was
+0 0 0 0 0
+dem nstrated. This part als pr vides images f the applicati n which help dem nstrate h w t use the
+0 0 0 0 0 0 0 0
+applicati n.
+0
+The final result is the functi nal m bile applicati n that all ws users t trade pr ducts nline. The
+0 0 0 0 0 0 0
+applicati n was devel ped using meth ds and techn l gies that were intr duced in the the retical
+0 0 0 0 0 0 0
+backgr und.
+0
+--- PAGE 5 ---
+Contents
+1 Introduction .................................................................................................................................... 4
+2 Theoretical Background .................................................................................................................. 5
+2.1 Mobile application development ..................................................................................................... 5
+2.2 Project Requirements ...................................................................................................................... 6
+2.3 React Native ................................................................................................................................... 6
+2.4 Nodejs ............................................................................................................................................ 7
+2.5 MongoDB....................................................................................................................................... 8
+2.6 Rest API ......................................................................................................................................... 8
+2.7 Software development life cycle models ......................................................................................... 8
+3 Practical Implementation ................................................................................................................ 9
+3.1 Application overview ...................................................................................................................... 9
+3.2 Server-side implementation ........................................................................................................... 10
+3.2.1 API planning .......................................................................................................................... 10
+3.2.2 Server implementation ............................................................................................................ 12
+3.3 Mobile application implementation ............................................................................................... 23
+4 Conclusion ................................................................................................................................... 41
+REFERENCES ..................................................................................................................................... 43
+--- PAGE 6 ---
+4
+1 Introduction
+N w a days, we have a trend called "m bile first", which means designing user interface f r m bile
+0 0 0 0
+first bef re deskt p applicati ns and m bile applicati ns. Smartph nes play a crucial r le in ur life.
+0 0 0 0 0 0 0 0
+M re and m re m bile applicati ns are devel ped in rder t impr ve ur life. In s ftware
+0 0 0 0 0 0 0 0 0 0
+devel pment, we have vari us pti ns, f r example, deskt p applicati ns, web applicati ns, m bile
+0 0 0 0 0 0 0 0 0
+applicati ns and thers. H wever, the reas n why m bile is leading is that alm stevery ne n w
+0 0 0 0 0 0 0 0
+wns a smartph ne s it w uld be the easiest way f r pe ple t appr ach an applicati n.
+0 0 0 0 0 0 0 0 0
+E-c mmerce is a m del that all w firms and individuals t trade things nline. It was first
+0 0 0 0 0
+intr duced in 1979 when Michael Aldrich invented electr nic sh pping by c nnecting a
+0 0 0 0
+cust mized TV t a transacti n-pr cessing c mputer thr ugh a teleph ne line. The significant
+0 0 0 0 0 0 0
+devel pment f E-c mmerce happened in 1995 when Amaz n and eBay were intr duced t the
+0 0 0 0 0 0
+market. Amaz n was started byJeff Bez s, while Pierre midyar launched eBay. Due t the
+0 0 0 0
+pandemic situati n,the demand f r nline sh pping has increased rapidly because s cial
+0 0 0 0 0
+distancingis required. M re ver, c nvenience is ne reas n why nline sh pping demand has
+0 0 0 0 0 0 0
+devel ped quickly.
+0
+The applicati n that I tend t d is an E-c mmerce m bile applicati n. The app includes tw r les,
+0 0 0 0 0 0 0 0
+which are admin and user. Users can view and buy the pr ducts that are available in the applicati n
+0 0
+while admins are all wed t manageth se pr ducts. The main functi n f this applicati n is that users
+0 0 0 0 0 0 0
+can search, view and select the pr ducts that they want t buy. An admin can manage pr ducts by
+0 0 0
+adding r deleting an item, as well as upl ad pictures and descripti ns f r pr ducts.
+0 0 0 0 0
+The applicati n target users are every ne wh want t trade pr ducts nline. Theapplicati n pr vides
+0 0 0 0 0 0 0 0
+a platf rm f r pe ple wh want t d ec mmerce. E- c mmerce is s p pular that many nline
+0 0 0 0 0 0 0 0 0 0 0
+buying websites are devel ped.
+0
+H wever, the number f pe ple that are using m bile are increasing day by day.It is easier t carry
+0 0 0 0 0
+a smart ph ne utside instead f a lapt p s m bile
+0 0 0 0 0 0
+--- PAGE 7 ---
+5
+applicati n w uld be a great ch ice t devel p. It helps businesses t get in t uch with their cust mers
+0 0 0 0 0 0 0 0
+easier. That is the reas n why I decided t devel p am bile applicati n.
+0 0 0 0 0
+In rder t achieve the g als, the thesis will be divided int different parts, described as
+0 0 0 0
+f ll ws:
+0 0
+ Part 1 (Intr ducti n) pr vides general inf rmati n ab ut the thesis t picwhich includes the
+0 0 0 0 0 0 0
+bjectives f the thesis
+0 0
+ Part 2 (The retical Backgr und) describes the definiti n f the meth dthat is used in the
+0 0 0 0 0
+thesis t create the s luti n f r the t pic
+0 0 0 0 0
+ Part 3 (Implementati n) explains the pr cess f devel pment and implemantati n
+0 0 0 0 0
+t pr vide the final result.
+0 0
+ Part 4 (C nclusi n) summarizes the utc me f the t pic
+0 0 0 0 0 0
+During the devel pment pr cess, there were several issues and limitati ns. The m st significant
+0 0 0 0
+pr blem is bug. I have met several bugs during the implementati n. T res lve these bugs, I have
+0 0 0 0
+spent many times t investigate and fix them. M re ver, the platf rm that I used t depl y the server
+0 0 0 0 0 0
+is free t uses it is quite sl w. Als , there is a pr blem that still cann t find a s luti n f r it is s me
+0 0 0 0 0 0 0 0 0 0
+images that upl ad t the server are n t display in the applicati n. This pr blem might be caused by
+0 0 0 0 0
+the st rage f images. H wever, I still cann t find a s luti n t replace it.
+0 0 0 0 0 0 0
+2 Theoretical Background
+This secti n c vers the study c ncepts f techn l gies that are used in the pr ject. It will pr vide
+0 0 0 0 0 0 0 0
+b th basic and detailed kn wlegde f meth ds that are used t devel p the m bile applicati n.
+0 0 0 0 0 0 0 0
+F ll wing that, the requirements f r theapplicati n and a brief intr ducti n t m bile devel pment
+0 0 0 0 0 0 0 0 0
+are als described.
+0
+2.1 Mobile application development
+M bile applicati ns can be divided int three types, which are native applicati n, hybrid applicati n
+0 0 0 0 0
+and cr ss-platf rm applicati n. Native applicati ns are applicati ns that are devel ped f r a specific
+0 0 0 0 0 0 0
+perating system. It can be Java r K tlin f r Andr id and bjective- C f r i S (Sergey 2019). The
+0 0 0 0 0 0 0 0
+m st imp rtant advantage that native applicati ns have is that
+0 0 0
+--- PAGE 8 ---
+6
+they are high perf rming applicati ns, which create an impressive user experience. H wever, it is
+0 0 0
+expensive t create a native applicati n because it requires a different c de base f r different
+0 0 0 0
+perating systems. ne m re way which we can appr ach m bile applicati n devel pment is hybrid
+0 0 0 0 0 0 0
+applicati n. Hybrid applicati n can be described as a webview bject that is depl yed in a native
+0 0 0 0
+c ntainer. Devel ping a hybrid applicati n is simple and take less time, h wever, a hybrid
+0 0 0 0
+applicati n d esn’t pr vide a brilliant user experience. An ther appr ach is cr ss-platf rm
+0 0 0 0 0 0 0
+applicati n. Cr ss-platf rm applicati n is cl sest t a native applicati n. The c debase is written in
+0 0 0 0 0 0 0 0
+JavaScript and c nnects t native c mp nents using bridges (Sergey 2019). It all ws sharing c de
+0 0 0 0 0 0
+between different platf rms, theref re, with ne c de base we can devel p applicati ns f r b th
+0 0 0 0 0 0 0 0
+Andr id and i S. S me cr ss-platf rm t ls which all w creating cr ss-platf rm applicati ns are
+0 0 0 0 0 00 0 0 0 0
+Xamarin and React Native. The applicati n in this pr ject is c nsidered as an cr ss- platf rm
+0 0 0 0 0
+applicati n.
+0
+2.2 Project Requirements
+As a result, the applicati n sh uld be w rking with the pr vided features. The applicati n will
+0 0 0 0 0
+have tw r les, which are users and admins. F r users, they canuse all the features as f ll ws:
+0 0 0 0 0
+ Sign in and sign ut
+0
+ Register
+ Search and select pr ducts
+0
+ Check ut pr cess: Fill in shipping f rm, ch se payment meth d, c nfirm rder
+0 0 0 00 0 0 0
+There is ne tab f r admin t manage the pr ducts. Admins are all wd t d these acti ns as
+0 0 0 0 0 0 0 0
+f ll ws:
+0 0
+ Add and update pr ducts
+0
+ Delete pr ducts
+0
+ Upl ad pr ducts’ image
+0 0
+ Update rders’ status
+0
+ Add categ ries
+0
+H wever, the payment is n t implemented in the applicati n. Theref re, the applicati n
+0 0 0 0 0
+fl w is st pped when user c nfirm their rders
+0 0 0 0
+2.3 React Native
+React Native is a platf rm that all ws devel pers t create m bile applicati ns f rb th
+0 0 0 0 0 0 0 0
+--- PAGE 9 ---
+7
+Andr id and i S. It was first released in 2015 by Faceb k. React Native c mbines the best parts f
+0 0 00 0 0
+native devel pment with React and a best-in-class JavaScript library f r building user interfaces.
+0 0
+(React Native 2021.) React Native is built by JavaScript, and theref re b th JavaScript and
+0 0
+TypeScript can be used in devel pment. It will use native view instead f webview s the result
+0 0 0
+applicati n will be an native applicati n.
+0 0
+There are tw imp rtant threads in React Native, which are Main Thread and JS Thread. JS Thread
+0 0
+is resp nsible f r the applicati n l gic, which means the c de executi n, API fetch and ther
+0 0 0 0 0 0 0
+pr cesses. Main Thread is resp nsible f r rendering native views. JS Thread is als used t decide
+0 0 0 0 0
+what will be displayed inthe screen and it will inf rm the Main Thread. H wever, Main Thread and
+0 0
+JS Thread will never c mmunicate directly. These tw threads will c mmunicate by using React
+0 0 0
+Native bridge. This bridge all ws tw threads that are written in tw different languages t
+0 0 0 0
+c mmunicate, which makes “bridge” a c re aspect f React Native structure.
+0 0 0
+Figure 1. JS Thread c mmunicates with Native Thread
+0
+2.4 Nodejs
+N dejs is a pen-s ure and cr ss-platf rm JavaScript runtime envir nment. It was first intr duced in
+0 0 0 0 0 0 0
+2009. N dejs was built n G gle Chr me’s V8 JavaScriptengine which ensures rapid c de
+0 0 00 0 0
+executi n. N dejs runs in a single pr cess, with ut creating a new thread f r every request ( penJS
+0 0 0 0 0 0
+F undati n). It is an asynchr n us, event-driven and n n-bl ck I/ platf rm, which means it w n’t
+0 0 0 0 0 0 0 0 0
+bl ck the thread and waste CPU cycles. "Asynchr n us" means N dejs d esn’t need t wait t
+0 0 0 0 0 0 0
+execute all the statements in the right rder, it can execute different statement while waiting. As a
+0
+result, these will help N dejs impr ve its perf rmance. N wadays, N dejs is an p pular pti n in the
+0 0 0 0 0 0 0 0
+devel per c mmunityall ver the
+0 0 0
+--- PAGE 10 ---
+8
+w rld. M re ver, it is widely used by many large c rp rati ns.
+0 0 0 0 0 0
+Ac rding t Jignesh (2021), N dejs is c nsidered t be the m st used t l in early 2021. Besides,
+0 0 0 0 0 0 00
+there is als N de Package Manager r NPM. NPM is n wthe w rld’s largest s ftware registry.
+0 0 0 0 0 0
+NPM is use f r installing packages f c de t y ur applicati n, sharing c de with npm users and
+0 0 0 0 0 0 0
+s n. It helps ease the devel pment pr cesses.
+0 0 0 0
+2.5 MongoDB
+M ng DB is a d cument database which is free t use. M ng DB was first released in 2009. It is
+0 0 0 0 0 0
+scalable and flexible, which pr vides many capabilities. M ng DB drivers are available in m re
+0 0 0 0
+than ten languages. With each language,it pr vides an fficial d cument
+0 0 0
+n its website which make m ng DB simple t use. M ng DB is available in tw pti ns,
+0 0 0 0 0 0 0 0 0
+which are cl ud and server. M ng DB cl ud is kn wn as M ng DB Atlas. M ng Db server is an
+0 0 0 0 0 0 0 0 0
+applicati n that we cand wnl ad and install it t use l cally. Alth ugh M ng DB is available in
+0 0 0 0 0 0 0 0
+tw pti ns but b th f them pr vides same features. M ng DB st re data in a JS N-like d cument,
+0 0 0 0 0 0 0 0 0 0 0
+which means fields can vary fr m d cument t d cument and data structure can be changed ver
+0 0 0 0 0
+time (M ng DB Inc 2021).
+0 0
+2.6 Rest API
+API r applicati n pr gramming interface is a set f rules define h w applicati ncan c nnect and
+0 0 0 0 0 0 0
+c mmunicate with each ther (IBM Cl ud Educati n, 2021).
+0 0 0 0
+REST API r RESTful API is an API that f ll w the REST principle. REST is kn wn as
+0 0 0 0
+representati nal state transfer. It is an architectural style and was first intr duced in 2000. T
+0 0 0
+devel p REST APIs, any pr gramming languages can be used. H wever, t be c nsidered a REST
+0 0 0 0 0
+API, it must f ll w the REST principles which are unif rm interface, client-server dec upling,
+0 0 0 0
+statelessness, cacheability,layered system architecture, c de n demand. REST APIs using HTTP
+0 0
+requests t perf rm functi n. It pr vides creating, reading, updating and deleting functi n t
+0 0 0 0 0 0
+manage rec rds. GET request is used t read the rec rd, which means we canretrieve the data
+0 0 0
+thr ugh GET request. P ST request is t create rec rd while PUT and DELETE request are t
+0 0 0 0 0
+update and delete rec rds. REST API is a flexible and lightweight s luti n t c nf rm applicati ns.
+0 0 0 0 0 0 0
+It is n w ne f the m st c mm n meth ds f r c nnecting applicati ns.
+0 0 0 0 0 0 0 0 0 0
+2.7 Software development life cycle models
+S ftware devel pment life cycle is a pr cess t design and devel p s ftware. Different pr ject will
+0 0 0 0 0 0 0
+have a different suitable m del. There are m re than 50 rec gnized s ftware
+0 0 0 0
+--- PAGE 11 ---
+9
+devel pment life cycle m dels (SDLC) in use (B ris, S. 2019) . H wever, there are s me m dels
+0 0 0 0 0 0
+that are m re p pular c mpare t thers, f r example, Waterfall, V-m del, Incremental and Iterative
+0 0 0 0 0 0 0
+m del, Spiral m del, The Rati nal Unified Pr cess and The Agile gr up. In this rep rt, Agile
+0 0 0 0 0 0
+meth d l gy will be intr duced. Agile is ne f the m st p pular meth d l gy, it is ch sen and
+0 0 0 0 0 0 0 0 0 0 0 0
+implemented in IT pr jetcs f ab ut 70% f rganizati n (B ris, S.2019). In Agile, the devel pment
+0 0 0 0 0 0 0 0
+pr cess will be divided int iterati ns. The team will c llab rate in planning, pr cessing and
+0 0 0 0 0 0
+evaluating each iterati n t get the best result. In the Agile gr up, it includes variable m dels, f r
+0 0 0 0 0
+example, Scrum, Kanban, Extreme Pr gramming and Adaptive Pr ject Framew rk. Scrum m del is
+0 0 0 0
+n w ne f the m st p pular m del f Agile. Scrum separate the devel pment pr cess int small
+0 0 0 0 0 0 0 0 0 0
+iterati n call sprint. Each sprint usually lasts f r tw t f ur weeks. Bef re each sprint starts, there
+0 0 0 0 0 0
+will be a sprint planning meeting t decidewhich issues sh uld be handled in this sprint. At the end
+0 0
+f each sprint, there will be a retr spective meeting t clarify what the team has achieved and what
+0 0 0
+sh uldbe impr ve. Scrum m del will help rganize and speed up the devel pment pr cess.
+0 0 0 0 0 0
+3 Practical Implementation
+This secti n is divided int three parts, which are applicati n verview, server implementati n, and
+0 0 0 0 0
+m bile applicati n implementati n. The first part is ab ut which features are included in the
+0 0 0 0
+applicati n. The sec nd part will c ver the details ab ut what is the plan f r the server and h w it
+0 0 0 0 0 0
+was implemented. The last part will be ab ut the implementati n f the m bile applicati n.
+0 0 0 0 0
+T pr vide a clearer picture f the implementati n pr cess, I will use the f ll wing typ graphy in
+0 0 0 0 0 0 0 0
+this secti n:
+0
+ API paths will be in b ld
+0
+ C de snippets are c l r-c ded
+0 0 0 0
+ C de qu tes are in italic
+0 0
+The syntax makes it easier t f ll w the implementati n part.
+0 0 0 0
+3.1 Application overview
+The m bile applicati n pr vides a platf rm that c ntains tw r les which are userand admin. F r
+0 0 0 0 0 0 0 0
+users, they can search, select and rder pr ducts that they demand. F r admins, the applicati n is
+0 0 0 0
+used t manage all the available pr ducts. M re ver, they can als add new pr ducts t the
+0 0 0 0 0 0 0
+platf rm.
+0
+--- PAGE 12 ---
+10
+The f ll wing list will describe the features and funti ns that are available in them bile
+0 0 0 0
+applicati n t make it simpler t understand h w it w rks:
+0 0 0 0 0
+ Pr duct list includes all the available pr ducts s that users can search f rpr ducts and view their
+0 0 0 0 0
+details. They can search pr ducts by their name using the search bar r by categ ries. Users can als
+0 0 0 0
+add the wanted items t their sh pping cart.
+0 0
+ The sh pping cart displays all the items that are selected by a user. Userscan d the check ut
+0 0 0
+pr cess in the cart. The check ut pr cess will includea f rm f r shipping inf rmati n, payment
+0 0 0 0 0 0 0
+meth d, and c nfirmati n bef re placing an rder.
+0 0 0 0 0
+ User management all ws users t sign in and sign ut the applicati n.M re ver, users can als
+0 0 0 0 0 0 0
+see their pr file.
+0
+ Pr duct management is nly available f r acc unts that have admin rights.The admin rights will
+0 0 0 0
+include pr 0 duct management, categ 0 ry management, and 0rder management. Admins can add a new
+pr0duct with all the required inf0rmati0n. They can als0 manage 0rders by updating theirstatus.
+In rder t fulfill the requirements, a database and server are needed t implement the m bile
+0 0 0 0
+applicati n. The database is used t st re all the data thatis used in the m bile applicati n. The
+0 0 0 0 0
+server is used t serving the requests t retrieve and manage data fr m the m bile side.
+0 0 0 0
+3.2 Server-side implementation
+3.2.1 API planning
+An applicati n pr gramming interface r API is used as a t l f r c mmunicati nbetween a m bile
+0 0 0 00 0 0 0 0
+applicati n and a server. In rder t understand h w APIs w rk, it is necessary t kn w their paths,
+0 0 0 0 0 0 0
+inputs and funti nality. The descripti n f each API is in the table bel w.
+0 0 0 0
+Table 1. API paths
+Path Meth d Input Descripti n
+0 0
+/users/l gin POST email, T sign in user
+0 0
+passw rd
+0
+--- PAGE 13 ---
+11
+/users/register PO name, ph ne, T register
+0 0
+ST new
+email,
+passw rd user
+0
+/users/getPr file/:id GE id T get user
+0 0
+T
+pr file by
+0
+id
+/pr ducts/getPr ductList GET - T get list f all
+0 0 0 0
+pr ducts
+0
+/pr ducts/getPr duct/:id GET id T get pr duct
+0 0 0 0
+details by its id
+/pr ducts/searchPr duct GET search (search text) T search
+0 0 0
+pr ducts by
+0
+keyw rd
+0
+/pr ducts/createPr ducts POST name, brand, price, T add new
+0 0 0
+categ ry, pr duct t
+0 0 0
+c untInSt ck, database
+0 0
+descripti n, image
+0
+/pr 0 ducts/updatePr 0 duct PUT name, brand, price, T 0 update
+categ ry, existing
+0
+c untInSt ck, pr ducts’
+0 0 0
+descripti n, image inf rmati n
+0 0 0
+/pr ducts/deletePr duct/:id DELETE id T delete
+0 0 0
+pr duct by id
+0
+/categ ries/getListCateg ry GET - T get list f all
+0 0 0 0
+categ ries
+0
+/categ ries/addCateg ry POST name T add new
+0 0 0
+categ ry
+0
+/ rders/create rder POST rderItems, T create a
+0 0 0 0
+shippingAdress1, new rder
+0
+city, t talPrice, zip,
+0
+c untry, ph ne
+0 0
+/ rders/get rderList GET - T get a list f
+0 0 0 0
+all rders
+0
+/ rders/updateStatus PUT Status T update an
+0 0
+rder’s status
+0
+--- PAGE 14 ---
+12
+In the implementati n, this table helps rganize all the APIs that are used duringthe devel pment. All the
+0 0 0
+APIs are created base n the m bile applicati n requirements.
+0 0 0
+3.2.2 Server implementation
+Bef re implementing the server, a database is needed t st re all the data. In this devel pment, I
+0 0 0 0
+ch se M ng DB as the database t implement. The database includes five c llecti ns which are
+0 0 0 0 0 0
+categ ries, rders, pr ducts, users, and rderItems. These c llecti ns usage is listed bel w:
+0 0 0 0 0 0 0
+ Users c llecti n is f r st ring all users’ data include username, passw rd,and pr file
+0 0 0 0 0 0
+inf rmati n.
+0 0
+ rders c llecti n are used t st re inf rmati n ab ut cust mers’ rders,which includes the
+0 0 0 0 0 0 0 0 0 0
+shipping inf rmati n and rder items.
+0 0 0
+ rderitems c llecti n st res the detail ab ut the items that are included inan rder. Fr m the
+0 0 0 0 0 0 0
+pr ducts’ id, the pr ducts’ details can be retrieved.
+0 0
+ Categ ries c llecti n has inf rmati n ab ut the existing categ ries
+0 0 0 0 0 0 0
+ Pr ducts c llecti n include inf rmati n n all pr ducts
+0 0 0 0 0 0 0
+Figure 2. Database c llecti ns
+0 0
+As menti ned ab ve, there are tw pti ns f r M ng DB which are cl ud and server. In this
+0 0 0 0 0 0 0 0 0
+pr ject, I ch se t use the cl ud versi n f M ng DB called Atlas.F r M ng DB, there are three
+0 0 0 0 0 0 0 0 0 0 0
+ways that we can c nnect the database t the server: c nnect with M ng DB
+0 0 0 0 0
+--- PAGE 15 ---
+13
+Shell, c nnect y ur applicati n, and c nnect using M ng DB C mpass. I ch se t c nnect t my
+0 0 0 0 0 0 0 0 0 0 0
+applicati n which requires ac nnecti n string that is pr vided by M ng DB. Figure 3 displays h w
+0 0 0 0 0 0 0
+t c nnectt M ng DB in y ur applicati n.
+0 0 0 0 0 0 0
+Figure 3. M ng DB c nnecti n
+0 0 0 0
+T create a c llecti n, a schema must be defined first. Each schema maps t a M ng DB
+0 0 0 0 0 0
+c llecti n and define the shape f d cuments within that c llecti n (M ng se). Each field f a
+0 0 0 0 0 0 0 00 0
+schema will be the c llecti n pr perty. Each field als has different pti ns t be defined, f r
+0 0 0 0 0 0 0 0
+example, type, default, required, etc.
+. Figure 4 describes all the c llecti ns in the database and their fields.
+0 0
+--- PAGE 16 ---
+14
+Figure 4. Database c llecti ns
+0 0
+H wever, t use the schema in the c llecti n, it must be c nverted int M del.Figure 5 sh ws h w
+0 0 0 0 0 0 0 0 0
+t c nvert schema t m del
+0 0 0 0
+Figure 5. C nvert schema t m del
+0 0 0
+In the database, there are five c llecti ns, each f them sh uld have a m del andschema t shape
+0 0 0 0 0 0
+the d cuments within the c llecti n. After defining all the m dels f r each c llecti n, I created a
+0 0 0 0 0 0 0
+r ute r URL path f r each request that was described in Table 1. Each API path will be a r ute. T
+0 0 0 0 0
+make it easier t understand, I will divide the API paths int small gr ups f paths that have a similar
+0 0 0 0
+functi n. First, t create a r ute, I had t ch se a meth d f r each r ute. F ur meth ds were used in
+0 0 0 0 00 0 0 0 0 0
+this pr ject: GET, P ST, PUT, and DELETE. Sec nd, based n each path descripti n, I defined a
+0 0 0 0 0
+prefix and a functi n f r the r ute.
+0 0 0
+--- PAGE 17 ---
+15
+Figure 6. API get list categ ry
+0
+Figure 6 displays h
+0
+w t
+0
+create a GET r
+0
+ute t
+0
+get a list
+0
+f all categ
+0
+ries. r0uter.get() was used t
+0
+create a GET meth
+0
+d. /getListCateg0ry is the prefix f
+0
+r this r
+0
+ute. The descripti
+0
+n
+0
+f this API path is
+t get all the categ ries that are existing in the applicati n s fr m the Categ ry m del, I used find()
+0 0 0 0 0 0 0
+t retrieve all the data that is available. If the path was able t get data fr m the c llecti n, the API
+0 0 0 0 0
+path will return a resp nse including data and a success status, which is true.If there are any
+0
+pr blems that prevent getting data, the r ute will send an err r message with a false success
+0 0 0
+status. Acc rding t the API path descripti n,
+0 0 0
+/pr ducts/getPr ductList, /categ ries/getListCateg ry, and / rders/get rderList have similar
+0 0 0 0 0 0
+functi ns s all f them will have a similarc debase but with different prefixes.
+0 0 0 0
+The next part explains h w t create a GET r ute that requires input t get sufficient data. These
+0 0 0 0
+/users/getPr file/:id and /pr ducts/getPr duct/:id. In these tw paths, there is: id after the
+0 0 0 0
+prefixes. This means a parameter called id is needed in this path. Based n the id, the r ute can get
+0 0
+the exact inf rmati n f reach pr duct r user in the c llecti ns. In rder t get the inf rmati n,
+0 0 0 0 0 0 0 0 0 0 0
+findById() meth d is used t get data by id in these API paths. Figure 7 displays h w t create these
+0 0 0 0
+r utes.
+0
+--- PAGE 18 ---
+16
+Figure 7. API get pr duct by id
+0
+In the m bile applicati n, there is a feature that all ws users t search f r the pr ducts. The
+0 0 0 0 0 0
+/pr ducts/searchPr duct path is used f r this feature. This path all ws getting pr ducts wh se
+0 0 0 0 0 0
+names have the keyw rd that users are searching.F r this r ute, the search keyw rd is the required
+0 0 0 0
+input. This r ute returns all the pr ducts wh se names have the keyw rd inside regardless f
+0 0 0 0 0
+p siti n and case sensitive. This API path c de is displayed in Figure 8.
+0 0 0
+Figure 8. API get pr duct by keyw rd
+0 0
+Next path c vers h w t c nstruct r utes f r /users/register,
+0 0 0 0 0 0
+/categ ries/addCateg ry, and / rders/create rder. Each r ute requires different inputs h wever,
+0 0 0 0 0 0
+their functi ns are similar. The meth d used in these r utes is P ST. These r utes are used t c llect
+0 0 0 0 0 0 0
+data that is sent fr m the m bileapplicati n and st re it in the database. Each path input was defined
+0 0 0 0
+in Table 1. I will take the /users/register path as an example. If the functi n can save the user t
+0 0
+the c llecti n, it will return the user inf rmati n as a resp nse. If it is
+0 0 0 0 0
+--- PAGE 19 ---
+17
+unable t save, the resp nse will be an err r message, which is “User cann t becreated”.
+0 0 0 0
+Figure 9. API register new user
+T secure the applicati n, a t ken is essential whenever a request is d ne. The t ken is generating
+0 0 0 0 0
+after the user l gin t the applicati n. In this pr ject, I used JS N Web T ken f r auth rizati n. The
+0 0 0 0 0 0 0 0 0
+pr cess f generating the t ken happens in the /users/l gin r ute. After the r ute receives an email
+0 0 0 0 0 0
+and passw rd fr m the m bile applicati n, it finds a user that has the same email in the c llecti n.
+0 0 0 0 0 0
+When the r ute can find a user with the pr vided email, it c mpares the given passw rd with the ne
+0 0 0 0 0
+that is st red in the c llecti n. If the passw rd matches, it starts generating the t ken. If n t, the
+0 0 0 0 0 0
+r ute returns an err rmessage. If there are any pr blems with finding a user, it returns a “User n t
+0 0 0 0
+f und” message. jwt.sign() functi n c mbines the payl ads, which are userId andisAdmin fields,
+0 0 0 0
+with the secret key t generate the t ken. The utput is three Base64-URL strings separated by d ts
+0 0 0 0
+that can be easily passed in HTML and HTTP envir nments while being m re c mpact when
+0 0 0
+c mpared t XML-based standards such as SAML (Auth0). After creating the t ken, the path
+0 0 0
+returns the
+--- PAGE 20 ---
+18
+user’s email and t ken in the resp nse. Figure 10 displays h w t implementl gin API.
+0 0 0 0 0
+Figure 9. FLig
+0
+ugrien 1A1P. LI 0gin API
+When creating a pr duct, inf rmati n ab ut the name, brand, price, image, etc is required. This API
+0 0 0 0
+path als has quite a similar functi n with /users/register path, h wever, the difference is that this
+0 0 0
+path has a functi n t upl ad images. T st re images, I use multer library. The destinati n t st re
+0 0 0 0 0 0 0 0
+images is
+/public/images f lder. There is als the validati n f r file types. In this applicati n, I c nfigured it t
+0 0 0 0 0 0 0
+all w nly jpg, png, and jpeg files. In case f the wr ng type, the r ute sends an err r message. By
+0 0 0 0 0 0
+using this library, I can upl ad images fr m them bile applicati n t the server. Figure 10 sh ws t
+0 0 0 0 0 0 0
+c nfigure the st rage f r images.
+0 0 0
+--- PAGE 21 ---
+19
+Figure 10. Multer c nfigurati n
+0 0
+The /pr ducts/createPr ducts path c nfigures the path f r images that are upl aded t the
+0 0 0 0 0 0
+database. The image path will be used t render the image in them bile applicati n. Except f r the
+0 0 0 0
+upl ading functi n, this r ute saves the pr ductt the database. If the pr cess is successful, it
+0 0 0 0 0 0
+returns the updated pr ducts.
+0
+therwise, it returns an err r message. The c de f r this path is described bel w.
+0 0 0 0 0
+r uter.p st(`/createPr ducts`, upl ad.single("image"), async (req, res) => {c nst categ ry
+0 0 0 0 0 0
+= await Categ ry.findById(req.b dy.categ ry); if
+0 0 0
+(!categ ry) {
+0
+return res.status(400).js n({
+0
+message: "Invalid categ ry", success: false
+0
+});
+}
+c nst file = req.file;if (!file) {
+0
+return res.status(400).js n({ message:
+0
+"Invalid image", success: false
+});
+}
+--- PAGE 22 ---
+20
+c nst fileName = req.file.filename;
+0
+c nst imagePath = `${req.pr t c l}://${req.get("h st")}/public/images/`;let pr duct
+0 0 0 0 0 0
+= new Pr duct({
+0
+name: req.b dy.name, descripti n:
+0 0
+req.b dy.descripti n,
+0 0
+richDescripti n: req.b dy.richDescripti n, image:
+0 0 0
+`${imagePath}${fileName}`, brand: req.b dy.brand,
+0
+price: req.b dy.price, categ ry: req.b dy.categ ry,
+0 0 0 0
+c untInSt ck: req.b dy.c untInSt ck, rating:
+0 0 0 0 0
+req.b dy.rating, numReviews: req.b dy.numReviews,
+0 0
+isFeatured: req.b dy.isFeatured,
+0
+});
+pr duct = await pr duct.save();if (!pr duct) {
+0 0 0
+return res.status(400).js n({ success: false,
+0
+message: "Pr duct cann t be created",
+0 0
+});
+} else {
+return res.status(200).js n({ success: true,
+0
+pr duct
+0
+});
+}
+});
+Besides adding new pr ducts, there is a feature t delete pr ducts. The API path is
+0 0 0
+/pr ducts/deletePr duct/:id. It uses the pr duct id t retrieve that pr duct andt rem ve that
+0 0 0 0 0 0 0
+fr m the c llecti n.
+0 0 0
+--- PAGE 23 ---
+21
+Figure 11. API t delete a pr duct
+0 0
+This part is t dem nstrate h w t pr duct /pr ducts/updatePr duct and
+0 0 0 0 0 0 0
+/ rders/updateStatus path. T update the path, I used PUT meth d. The fields that need t be
+0 0 0 0
+updated are the inputs f r these paths. It als requires the id t find pr ducts r rders in the
+0 0 0 0 0 0
+c llecti ns. The r ute uses findByIdAndUpdate() meth d t update the fields. Each path has
+0 0 0 0 0
+separate required inputs that were defined in Table 1. Figure 12 illustrates the c de base f r
+0 0
+/ rders/updateStatuspath.
+0
+--- PAGE 24 ---
+22
+Figure 12. Update status API
+T impr ve security f r the applicati n, the t ken is required in all the API paths.H wever, there are
+0 0 0 0 0 0
+s me paths that d n t need t apply the t ken. The t ken is nly generated after l gin. H wever,
+0 0 0 0 0 0 0 0 0
+users are all wed t view the pr ducts, place rders, and register a new acc unt while n t signed
+0 0 0 0 0 0
+in. Figure 13 specifiespaths that d n t need the t ken: l gin, register, all the GET requests f r
+0 0 0 0 0
+pr ducts, GET requests f r categ ries, GET requests f r images, and P ST requests f r rders.
+0 0 0 0 0 0 0
+--- PAGE 25 ---
+23
+Figure 13.T ken excepti n
+0 0
+The server runs l cally using l calh st. T run the server gl bally, I need t depl y the server t a
+0 0 0 0 0 0 0 0
+depl yment platf rm. I ch se Her ku as the depl yment platf rm t depl y my server. T d the
+0 0 0 0 0 0 0 0 0 0
+depl yment, we can use the c mmand line t ch se t depl y n Her ku website. In this pr ject, I
+0 0 0 00 0 0 0 0 0
+ch se t depl y n Her ku website by c nnecting t my rep sit ry n GitHub. n Her ku, I
+0 0 0 0 0 0 0 0 0 0 0 0
+createdan applicati n called nhu-esh p-server. After that, I selected GitHub as the depl yment
+0 0 0
+meth d. Fr m that, I can ch se the branch that I want t depl y t Her ku and depl y it.
+0 0 00 0 0 0 0 0
+Figure 14. C nnect GitHub t Her ku
+0 0 0
+3.3 Mobile application implementation
+This secti n c vers the pr cess f m bile applicati n implementati n. It includes h w t create the
+0 0 0 0 0 0 0 0 0
+applicati n and h w the m bile applicati n l ks like. T createthis applicati n, I ch se React Native
+0 0 0 0 00 0 0 0
+as the devel pment platf rm. By using React Native, I can create an applicati n f r b th Andr id
+0 0 0 0 0 0
+and i S using nly nec debase. First t create a React Native pr ject, setting up the devel pment
+0 0 0 0 0 0 0
+envir nment is required. React Native pr vides a c mprehensive d cument n their website ab ut
+0 0 0 0 0 0
+h w t set up a c ding envir nment. By f ll wing the instructi n, the envir nment can be set up
+0 0 0 0 0 0 0 0
+successfully. Next is t
+0
+initialize a newpr
+0
+ject, I used npx react-native init Esh0p c
+0
+mmand t
+0
+start
+a c mpletely new pr ject. After creating the pr ject, I rganized it int vari us f lders t make the
+0 0 0 0 0 0 0 0
+pr ject easier t understand.
+0 0
+--- PAGE 26 ---
+24
+F r every applicati n, navigati n plays a crucial r le, theref re, I created the navigati n f r the
+0 0 0 0 0 0 0
+applicati n first. T create the navigati n, I used a react- navigati n library. F r every library that
+0 0 0 0 0
+was used in this applicati n, they wereinstalled by using the npm install c mmand. The main
+0 0
+navigati n is the b tt mtab navigati n that includes f ur tabs, which are H me, Cart, User, and
+0 0 0 0 0 0
+Admin.Each tab will be a navigati n stack. Each screen must be defined in its navigati n. Figure
+0 0
+15 displays the m bile applicati n’s navigati n.
+0 0 0
+Figure 15. Navigati n
+0
+F r tab navigati n, each screen is a tab and a tab ic n is required. In each tab, the c mp nent
+0 0 0 0 0
+must be defined. As menti ned ab ve, each tab als c ntains anavigati n stack s that in Figure 16
+0 0 0 0 0 0
+the c mp nent f r the H me tab is a stackinstead f a screen.
+0 0 0 0 0
+--- PAGE 27 ---
+25
+Figure 16. B tt m tab navigati n
+0 0 0
+An ther type f navigati n in the m bile applicati n is stack navigati n. Stack navigati n w rks
+0 0 0 0 0 0 0 0
+similarly t tab navigati n. There are five navigati n stacks in the pr ject which are Admin
+0 0 0 0
+Navigati n, Pr duct Navigati n, User Navigati n, and Cart Navigati n. Screens inside the stack
+0 0 0 0 0
+must be declared. In the c nfigurati n, I als defined a cust m header s every screen has the
+0 0 0 0 0
+same header. F r Check ut Navigati n, I als used tab navigati n but it is a t p tap navigat r.
+0 0 0 0 0 0 0
+Figure 17 is an example f a navigati n stack. Figure 18 displays thec nfigurati n f r t p tab
+0 0 0 0 0 0
+navigati n.
+0
+--- PAGE 28 ---
+26
+Figure 17. Stack navigati n
+0
+Figure 18. T p tab navigati n
+0 0
+All the available screens are in the Screen f lder. This w uld help rganize the pr ject making it
+0 0 0 0
+easier t find files. In this part, I will describe the screens by their navigati n stack. The first
+0 0
+stack is the Pr duct navigati n stack. It includestw screens, which are the Pr duct screen and
+0 0 0 0
+Pr duct detail screen. In the Pr duct screen, a list f all pr ducts is sh wn and there is als a
+0 0 0 0 0 0
+search bar f r
+0
+--- PAGE 29 ---
+27
+users t search f r any pr ducts. M re ver, users can als ch se t filter pr ducts by categ ry.
+0 0 0 0 0 0 00 0 0 0
+By clicking n the categ ry name, nly pr ducts that bel ng t that categ ry are sh wn. In the
+0 0 0 0 0 0 0 0
+Pr duct detail screen, users are all wed t add pr ducts t the sh pping cart. Figure 19
+0 0 0 0 0 0
+includes a picture fpr duct and pr duct detail screens.
+0 0 0
+Figure 19. Pr duct screens
+0
+The list f items is sh wn in a card item f rm. This card item is a cust m c mp nent. When users
+0 0 0 0 0 0
+click n an item, it navigates t the pr duct detail screent display m re inf rmati n ab ut the
+0 0 0 0 0 0 0 0
+pr duct. T create the cust m card item, I use the T uchable pacity c mp nent which all ws users
+0 0 0 0 0 0 0 0
+t click n it. T render it as a list, I used the Flatlist c mp nent. Flatlist all ws rendering a list f
+0 0 0 0 0 0 0
+data under a cust m view. Figure 20 displays the implementati n pr cess.
+0 0 0
+--- PAGE 30 ---
+28
+Figure 20. Card item implementati n
+0
+T have the pr duct data, I can get it fr m the API path. The
+0 0 0
+/pr ducts/getPr ductList path is used t get the pr duct list while
+0 0 0 0
+/pr ducts/getPr duct/:id is t get pr duct details. /pr ducts/searchPr duct is used when the
+0 0 0 0 0 0
+search bar text changes t get pr ducts that their name includes that keyw rd. T make the request,
+0 0 0 0
+I used the axi s library. It all ws y u t makea request fr m the applicati n t get data fr m the
+0 0 0 0 0 0 0 0
+server.
+--- PAGE 31 ---
+29
+Figure 21. Get list pr duct request
+0
+When the users click Add butt n in the pr duct detail screen, the pr duct is added t the cart. Users
+0 0 0 0
+can add as many pr ducts as they want. When the Add butt n is clicked, the pr duct id is st red t
+0 0 0 0 0
+use that id t get the pr duct n the cart screen. The pr duct id is st red in reducer. When users
+0 0 0 0 0
+click the butt n, it dispatches the a predefined acti n t st re data in reducer. Reducer can be
+0 0 0 0
+usedeverywhere in the pr ject, theref re, st ring data in reducer all ws that data can be accessed n
+0 0 0 0 0
+different screens.
+--- PAGE 32 ---
+30
+Figure 22. Acti ns and reducers.
+0
+T render the selected pr ducts, I used the selected ids that are st red in the reducer and the
+0 0 0
+/pr ducts/getPr duct/:id path t get the pr duct inf rmati n. Atthe b tt m f the screen, there are
+0 0 0 0 0 0 0 0 0
+Clear and Check ut butt ns. The Clear butt nis used t delete all items in the cart. The Check ut
+0 0 0 0 0
+butt n navigates t the check ut pr cess. Users are als able t delete a single item by swiping left n
+0 0 0 0 0 0 0
+that item. The Clear and Delete butt ns dispatch EMPTY_CART and DELETE_FR M_CART
+0 0
+acti ns that are sh wn in Figure 23.
+0 0
+--- PAGE 33 ---
+31
+Figure 23. Cart Screen
+After clicking Check ut, the applicati n navigates t the check ut pr cess. This pr cess has three
+0 0 0 0 0 0
+steps: shipping, payment, and c nfirmati n. In this pr cess, I used a t p tab bar that includes three
+0 0 0 0
+screens: shipping, payment and c nfirm. F r the shipping tab, users are required t fill in all the
+0 0 0
+shipping inf rmati n. If anyinf rmati n is missing, there is an err r message under each missing
+0 0 0 0 0
+input.
+--- PAGE 34 ---
+32
+Figure 24. Shipping inf rmati n screen
+0 0
+F r sh wing the purp se f err r message, I created a cust m input called TextField that displays a
+0 0 0 0 0 0
+message when users click ut f the input with ut filling it. When the input is f cused, the message
+0 0 0 0
+is clear. By using refs, the applicati n can access the appr priate c mp nent and execute the c de
+0 0 0 0 0
+f r that c mp nent.This cust m input is created based n the React Native TextInput c mp nent.
+0 0 0 0 0 0 0
+Figure 25 sh ws h w t implement the TextField.
+0 0 0
+--- PAGE 35 ---
+33
+Figure 25. Cust m input
+0
+The next step is t ch se a payment meth d. There are three meth ds whichare cash n
+0 00 0 0 0
+delivery, bank transfer, and card payment. H wever, in this applicati n, the payment
+0 0
+gateway is n t implemented yet. In the C nfirm tab, there is a summarizati n f r shipping
+0 0 0 0
+inf rmati n and selected pr ducts, theref re, users can check all inf rmati n bef re
+0 0 0 0 0 0 0
+placing an rder. When userspress the Place rder butt n, the rder detail is sent t the
+0 0 0 0 0
+server using
+/ rders/create rder path. When an rder is placed successfully, there is a p p-up message
+0 0 0 0
+t indicate that the rder has been made and the cart is clear.
+0 0
+Figure 26. Place rder functi n
+0 0
+--- PAGE 36 ---
+34
+Figure 27. Payment and C nfirm screens
+0
+The next part was t implement the User tab. If users are n t signed in, when they press
+0 0
+the User tab, it sh ws the l gin screen. n the l gin screen, the usercan l g in with an
+0 0 0 0 0
+existing acc unt r register f r a new acc unt. The
+0 0 0 0
+/users/l gin path is used t l gin user and returns a t ken. A t ken is required f r making
+0 0 0 0 0 0
+ther requests. The t ken is st red in l cal st rage called async st rage. The t ken value is
+0 0 0 0 0 0 0
+st red in the st rage until I rem ved it r the applicati n is uninstalled. Previ usly, when I
+0 0 0 0 0 0
+implemented the server, I generatedthe t ken that included the value f the isAdmin field,
+0 0
+c nsequently, in the m bileapplicati n, I can dec de it t get the isAdmin value. This value
+0 0 0 0 0
+is used t verify ifthe l gin acc unt is an admin r n t. M re ver, when l gging in
+0 0 0 0 0 0 0 0
+successfully, theuser’s inf rmati n is saved in a reducer similar t the cart pr cess. Fr m
+0 0 0 0 0
+there, the user’s inf rmati n can be accessed n every ther screen thr ugh ut the
+0 0 0 0 0 0
+applicati n. The applicati n uses the t ken t check whether the acc unt has admin rights
+0 0 0 0 0
+r n t. If the user is admin, in the b tt m tab it will sh w the Admin
+0 0 0 0 0
+--- PAGE 37 ---
+35
+tab. Figure 28 sh ws the implementati n f the l gin pr cess and saving theinf rmati n
+0 0 0 0 0 0 0
+t the reducer.
+0
+Figure 28. L gin request
+0
+--- PAGE 38 ---
+36
+Figure 29. L gin screen
+0
+If users d n t have acc unts, they can register f r a new acc unt. When pressing the
+0 0 0 0 0
+Register butt n, the applicati n navigates t the Register screen. There is a f rm t fill in
+0 0 0 0 0
+pers nal inf rmati n. The required inf rmati n is name, email, ph ne number, and
+0 0 0 0 0 0
+passw rd. After registering successfully, the applicati n displays l gin f r users t l g in.
+0 0 0 0 0 0
+If users are signed in, when they press n the User tab, it sh ws the Pr file screen, which
+0 0 0
+displays the user’s pers nal inf rmati n. Users can sign ut in the Pr file screen als .
+0 0 0 0 0 0
+When userspress the Sign ut butt n, all the inf rmati n that is st red in st re and async
+0 0 0 0 0 0
+st rage will be rem ved.
+0 0
+--- PAGE 39 ---
+37
+Figure 30. Register and Pr file screen
+0
+F r admins, there is an Admin tab that all ws admins t d management. Adminscan add
+0 0 0 0
+new pr ducts and categ ries, update pr ducts and rders, and delete pr ducts. When
+0 0 0 0 0
+pressing the Admin tab, it sh ws the list f all existing pr ducts. An admin can edit r delete
+0 0 0 0
+the pr duct by swiping left n that pr duct. There aretw butt ns, Edit and Delete. There is
+0 0 0 0 0
+als a search bar f r admins t search f r pr ducts. This search bar has a similar functi n t
+0 0 0 0 0 0 0
+the ne n the Pr duct screen.Name, brand, price, and categ ry are sh wn n each card. At
+0 0 0 0 0 0
+the t p f the screen, there are three butt ns which are rders, Pr duct, and Categ ry.
+0 0 0 0 0 0
+Pressing the rders butt n, the applicati n navigates t the rders screen whereadmins can
+0 0 0 0 0
+manage all rders. The Pr duct and Categ ry butt ns are used t navigate the applicati n t
+0 0 0 0 0 0 0
+the Pr duct and Categ ry screens. In these tw screens, admins can add new pr ducts and
+0 0 0 0
+categ ries.
+0
+--- PAGE 40 ---
+38
+--- PAGE 41 ---
+39
+Figure 31. Pr duct List and Categ ry screen
+0 0
+n the rders screen, there is a list f rders that includes inf rmati n ab ut the rders. In
+0 0 0 0 0 0 0 0
+this screen, admins are all wed t update the rders’ status. When admins press the Update
+0 0 0
+butt n, it displays a b tt m sheet that c ntains all statuses. Fr m there, admins can ch se
+0 0 0 0 0 00
+which ne t update. After updating success, it navigates t the Pr duct List screen. T
+0 0 0 0 0
+cust m the b tt m sheet, I used the M dal c mp nent. T render the list f status, I used
+0 0 0 0 0 0 0 0
+Flatlist and each item is a butt n. When admins press ne butt n, it sh ws the check ic n
+0 0 0 0 0
+t markthe selected pti ns. When t uching utside the b tt m sheet, it cl ses the sheet.
+0 0 0 0 0 0 0 0
+Figure 32 displays the rders screen and the b tt m sheet.
+0 0 0
+Figure 32. rders screen
+0
+T add new pr ducts, admins need t fill in all the inf rmati n f r the pr duct. The
+0 0 0 0 0 0 0
+inf rmati n includes brand, name, price, c unt in st ck, descripti n, categ ry, and picture.
+0 0 0 0 0 0
+ther fields use the cust m TextField that was created t use in the Register screen except
+0 0 0
+f r picture and categ ry. F r the categ ry field,it displays the b tt m sheet similar t ne in
+0 0 0 0 0 0 0 0
+the rders screen. There is a new functi n in this screen which is adding an image. T add
+0 0 0
+images, I used a library
+--- PAGE 42 ---
+40
+called react-native-image-picker. This library d es n t require additi nal settings f r
+0 0 0 0
+permissi n. By using this library, the applicati n can access the device’s ph t s. The result
+0 0 0 0
+c ntains the name, type, URI, and s n. Fr m that inf rmati n, I can render the image and
+0 0 0 0 0 0
+als use it f r sending the image t the server.
+0 0 0
+Figure 33. Add pr duct screen
+0
+Figure 34. Select image functi n
+0
+--- PAGE 43 ---
+41
+Unlike ther requests, this request is made differently. Usually, the data sent t the server
+0 0
+is in JS N f rmat. H wever, in this request, it is in F rmData. I created a new F rmData
+0 0 0 0 0
+and appended all the required fields t the F rmData. F r the image, the different perating
+0 0 0 0
+system has a different URI. Because f that, in i S, I had t change the image’s URI t
+0 0 0 0
+make the request. After creatinga new pr duct successfully, the applicati n navigates t
+0 0 0
+the Pr duct List screen and displays a success message.
+0
+Figure 34. Create new F rmData
+0
+--- PAGE 44 ---
+42
+4. Conclusion
+The g al f this thesis is t create an nline sh pping m bile applicati n and t d research
+0 0 0 0 0 0 0 0 0
+t put it int acti n. The applicati n is f r every ne wh wants t d sh pping nline. The the retical
+0 0 0 0 0 0 0 0 0 0 0 0
+backgr und secti n has c vered the study
+0 0 0
+c ncepts and definiti ns f s ftware devel pment, meth ds and techn l gies t implement the thesis.
+0 0 0 0 0 0 0 0 0
+This secti n explains the c ncept f database and server,the definiti n f different platf rms and t ls
+0 0 0 0 0 0 00
+that are used in the implementati nsecti n. This the retical backgr und part makes it straightf rward
+0 0 0 0 0
+t understandthe implementati n secti n.
+0 0 0
+The practical implementati n part describes the pr cess f making the server andm bile applicati n. It
+0 0 0 0 0
+als pr vides the planning n h w t implement the applicati n. The pictures f all the screens in the
+0 0 0 0 0 0 0
+applicati n is displayed in this secti n. By applying the meth ds and techn l gies, the applicati n was
+0 0 0 0 0 0
+devel ped successfully. With the pr vided t ls, the applicati n fulfills the predefined g als in the
+0 0 00 0 0
+beginning. The applicati n still needs t be devel ped m re in the future. M re features sh uld be
+0 0 0 0 0 0
+included t pr vide the best user experience. P ssible further devel pment ideas are sending an email
+0 0 0 0
+c nfirmati n, changing email and passw rd, adding c mments and s n.
+0 0 0 0 0 0
+T ensure that the applicati n is w rking, I have d ne s me testing n the applicati n. I tested it based n
+0 0 0 0 0 0 0 0
+my experience when using ther applicati ns. I tried t ensure that there are n crashes in the applicati n.
+0 0 0 0 0
+The server side f thisthesis was depl yed t Her ku s that the API can be used in public. H wever, the
+0 0 0 0 0 0
+applicati n has n t been depl yed t any platf rms. The requirement f r publishing the applicati n t
+0 0 0 0 0 0 0 0
+App St re ang Play St re is quite c mplex s I have n t d ne it in this thesis.
+0 0 0 0 0 0
+--- PAGE 45 ---
+REFERENCES
+ Autho. No date. Introduction to JSON Web Tokens. WWW document. Availableat:
+https://jwt.io/introduction [Accessed 2 Sep 2021]
+ Boris, S. 2019. 8 Software Development Models: Sliced, Diced and organized inCharts. WWW
+document. Available at: https://www.scnsoft.com/blog/software- development- models [Accessed 30
+August 2021]
+ Facebook Inc. 2o21. React Native. WWW document. Available at: https://reactnative.dev/
+[Accessed 28 August 2021]
+ openJS Foundation. No date. Introduction to Nodejs. WWW document. Availableat:
+https://nodejs.dev/learn [Accessed 28 August]
+ Saket, K. 2018. How React Native Works ?. WWW document. Available at:
+https://www.codementor.io/@saketkumar95/how-react-native-works-mhjo4k6f3
+[Accessed 28 August 2021]
+ Sergey, K. 2o19. Mobile App Development Approaches Explained. WWW document.
+Available at: https://railsware.com/blog/native-vs-hybrid-vs-cross-
+platform/#Native_app_development [Accessed 28 August 2021]
+ Taha, S. 2021. What is Nodejs: A Comprehensive Guide. WWW document. Available at:
+https://www.simplilearn.com/tutorials/nodejs-tutorial/what-is-nodejs[Accessed 30
+ August 2021]
