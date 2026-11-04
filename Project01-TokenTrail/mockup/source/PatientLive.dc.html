@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Patient live status</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Noto+Sans+Devanagari:wght@500&amp;family=Noto+Sans+Kannada:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', 'Noto Sans Kannada', 'Noto Sans Devanagari', system-ui, sans-serif; display: flex; flex-direction: column; gap: 12px; padding: 18px 18px 20px;">
+
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <svg width="22" height="22" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+        <span style="font-size: 16px; font-weight: 700;">TokenTrail</span>
+      </div>
+      <span style="font-size: 13px; color: #4B5563;">City General Hospital · OPD Block B</span>
+    </div>
+    <div style="display: flex; background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 999px; padding: 3px;" role="group" aria-label="Language">
+      <button type="button" style="border: 0; background: #0E1726; color: #FFFFFF; font: 600 13px 'IBM Plex Sans', sans-serif; border-radius: 999px; min-width: 40px; height: 32px;">EN</button>
+      <button type="button" aria-label="Kannada" style="border: 0; background: transparent; color: #0E1726; font: 500 14px 'Noto Sans Kannada', sans-serif; border-radius: 999px; min-width: 40px; height: 32px;">ಕ</button>
+      <button type="button" aria-label="Hindi" style="border: 0; background: transparent; color: #0E1726; font: 500 14px 'Noto Sans Devanagari', sans-serif; border-radius: 999px; min-width: 40px; height: 32px;">हि</button>
+    </div>
+  </div>
+
+  <sc-if value="{{notTurn}}" hint-placeholder-val="{{true}}">
+    <div style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+
+      <div role="status" style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 14px; background: {{b.bg}}; color: {{b.fg}}; border: 1px solid {{b.bd}};">
+        <sc-if value="{{icoInfo}}" hint-placeholder-val="{{true}}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+        </sc-if>
+        <sc-if value="{{icoBell}}" hint-placeholder-val="{{false}}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+        </sc-if>
+        <sc-if value="{{icoOff}}" hint-placeholder-val="{{false}}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;"><path d="M2 2l20 20"></path><path d="M8.5 16.5a5 5 0 0 1 7 0"></path><path d="M5 12.9a10 10 0 0 1 5.2-2.8"></path><path d="M19 12.9a10 10 0 0 0-2.3-1.6"></path><path d="M12 20h.01"></path></svg>
+        </sc-if>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 600; line-height: 1.3;">{{b.title}}</span>
+          <span style="font-size: 14px; line-height: 1.45;">{{b.sub}}</span>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 20px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 13px; color: #4B5563; font-weight: 500;">Your token</span>
+          <span style="font-size: 13px; color: #0A3F7A; background: #E7F0FA; border-radius: 999px; padding: 3px 10px; font-weight: 500;">General Medicine</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 48px; font-weight: 600; line-height: 1; letter-spacing: -0.02em;">B-047</span>
+          <span style="font-size: 14px; color: #374151;">Room 3 · Dr. Meera Iyer</span>
+        </div>
+        <div style="height: 1px; background: #E5E9EF;"></div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 13px; color: #4B5563;">Now serving</span>
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 28px; font-weight: 600; line-height: 1.1;">{{s.serving}}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 13px; color: #4B5563;">Ahead of you</span>
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 28px; font-weight: 600; line-height: 1.1;">{{s.ahead}}</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F3F5F8; border-radius: 12px; padding: 10px 12px;">
+          <span style="font-size: 14px; color: #374151;">Estimated wait</span>
+          <span style="font-size: 17px; font-weight: 600;">{{s.wait}}</span>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 20px; padding: 16px 20px 14px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="font-size: 14px; font-weight: 600;">Alerts</span>
+          <span style="font-size: 13px; color: #4B5563;">people ahead</span>
+        </div>
+        <div style="position: relative; height: 40px; margin: 0 4px;">
+          <div style="position: absolute; left: 0; right: 0; top: 7px; height: 6px; border-radius: 3px; background: #E5E9EF;"></div>
+          <div style="position: absolute; left: 0; top: 7px; height: 6px; border-radius: 3px; background: #0A58A8; width: {{fillPct}};"></div>
+          <sc-for list="{{dots}}" as="d" hint-placeholder-count="4">
+            <div style="position: absolute; top: 0; left: {{d.left}}; transform: translateX({{d.tx}}); display: flex; flex-direction: column; align-items: {{d.align}}; gap: 6px;">
+              <span style="width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: {{d.dotBg}}; border: 2px solid {{d.dotBd}};"></span>
+              <span style="font-size: 13px; color: {{d.lblColor}}; font-weight: {{d.weight}}; line-height: 1;">{{d.label}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid #E5E9EF; padding-top: 12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#157F3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+          <span style="font-size: 14px; color: #374151; flex-grow: 1;">On for this phone · SMS backup to 98•••••721</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4B5563; padding: 0 4px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg>
+        <span>{{meta}}</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: auto;">
+        <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; border-radius: 14px; background: #FFFFFF; border: 1px solid #C9D1DC; color: #0E1726; font-size: 15px; font-weight: 600; text-decoration: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Find Room 3
+        </a>
+        <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; border-radius: 14px; background: #FFFFFF; border: 1px solid #C9D1DC; color: #0E1726; font-size: 15px; font-weight: 600; text-decoration: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6.2A8 8 0 1 1 21 12z"></path></svg>
+          Help · Desk 2
+        </a>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{isTurn}}" hint-placeholder-val="{{false}}">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px;">
+      <div role="alert" style="flex-grow: 1; background: #0A58A8; color: #FFFFFF; border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+          <span style="font-size: 15px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Called at 10:51</span>
+        </div>
+        <span style="font-size: 40px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;">It's your turn</span>
+        <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 72px; font-weight: 600; line-height: 1;">B-047</span>
+        <div style="background: #FFFFFF; color: #0E1726; border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 13px; color: #4B5563; font-weight: 500;">Go now to</span>
+          <span style="font-size: 30px; font-weight: 700; line-height: 1.1;">Room 3</span>
+          <span style="font-size: 15px; color: #374151;">Dr. Meera Iyer · General Medicine</span>
+          <span style="font-size: 14px; color: #374151;">Ground floor, next to Waiting Area B</span>
+        </div>
+        <span style="font-size: 15px; line-height: 1.45; margin-top: auto;">Please arrive within 5 minutes. After that your turn moves to the next patient — you can re-join at Desk 2.</span>
+      </div>
+      <button type="button" style="height: 56px; border-radius: 16px; border: 0; background: #0E1726; color: #FFFFFF; font: 600 17px 'IBM Plex Sans', sans-serif;">I'm on my way</button>
+      <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; border-radius: 14px; background: #FFFFFF; border: 1px solid #C9D1DC; color: #0E1726; font-size: 15px; font-weight: 600; text-decoration: none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Find Room 3
+      </a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"stage":{"editor":"enum","options":["waiting","ten","five","two","turn","offline"],"default":"waiting"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const S = {
+      waiting: { time: '09:52', serving: 'B-032', ahead: 14, wait: '50–65 min',
+        b: { title: "You're free to step out", sub: "We'll alert you at 10, 5 and 2 people ahead. Keep this page open or bookmarked.", bg: '#E7F0FA', fg: '#0A3F7A', bd: '#C9DAF0' }, ico: 'info' },
+      ten: { time: '10:21', serving: 'B-037', ahead: 10, wait: '25–35 min',
+        b: { title: '10 people ahead of you', sub: 'Stay within 10 minutes of OPD Block B.', bg: '#0A58A8', fg: '#FFFFFF', bd: '#0A58A8' }, ico: 'bell' },
+      five: { time: '10:36', serving: 'B-042', ahead: 5, wait: '12–18 min',
+        b: { title: '5 ahead — start heading back now', sub: 'Aim to reach Waiting Area B within 10 minutes.', bg: '#FDF1E2', fg: '#7A3A04', bd: '#E8A55A' }, ico: 'bell' },
+      two: { time: '10:44', serving: 'B-045', ahead: 2, wait: '5–9 min',
+        b: { title: '2 ahead — please wait near Room 3', sub: 'Waiting Area B, ground floor. Keep this screen open.', bg: '#0E1726', fg: '#FFFFFF', bd: '#0E1726' }, ico: 'bell' },
+      offline: { time: '10:24', serving: 'B-037', ahead: 10, wait: '25–35 min', offline: true,
+        b: { title: "You're offline", sub: "Showing last known status from 10:24. The queue only moves forward — you haven't lost your place.", bg: '#ECEEF2', fg: '#1F2937', bd: '#C9D1DC' }, ico: 'off' },
+      turn: { time: '10:51', serving: 'B-047', ahead: 0, wait: 'Now', b: { title: '', sub: '', bg: '', fg: '', bd: '' }, ico: 'bell' }
+    };
+    const stage = this.props.stage ?? 'waiting';
+    const s = S[stage] || S.waiting;
+    const total = 14;
+    const pct = (n) => ((total - n) / total * 100).toFixed(1) + '%';
+    const marks = [{ t: 10, label: '10' }, { t: 5, label: '5' }, { t: 2, label: '2' }, { t: 0, label: 'Now' }];
+    const dots = marks.map((m, i) => {
+      const on = s.ahead <= m.t;
+      const last = i === marks.length - 1;
+      return { label: m.label, left: pct(m.t), tx: last ? '-100%' : '-50%', align: last ? 'flex-end' : 'center',
+        dotBg: on ? '#0A58A8' : '#FFFFFF', dotBd: on ? '#0A58A8' : '#8B95A3', lblColor: on ? '#0A3F7A' : '#4B5563', weight: on ? '600' : '400' };
+    });
+    return {
+      s, b: s.b, dots, fillPct: pct(s.ahead),
+      isTurn: stage === 'turn', notTurn: stage !== 'turn',
+      icoInfo: s.ico === 'info', icoBell: s.ico === 'bell', icoOff: s.ico === 'off',
+      meta: s.offline ? 'Last updated 10:24 · retrying every 15 s' : 'Updated ' + s.time + ' · refreshes automatically'
+    };
+  }
+}
+</script>
+</body>
+</html>

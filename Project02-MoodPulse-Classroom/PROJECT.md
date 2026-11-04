@@ -62,3 +62,8 @@ Page targets are planning estimates (ESTIMATE), sized to land ~40 body pages so 
 | 11 | Appendices | 2 | As needed | Not started |
 
 Workflow rule (`06-agent-workflow.md`): one chapter at a time, confirmed by Pavan before the next begins. A chapter is marked Not Applicable only after Pavan confirms.
+
+## Decisions recorded (4 Nov 2026)
+- **Stack (decision #2):** ASP.NET Core Web API + EF Core + SQL Server (Azure SQL), SignalR, Angular PWA. Chosen to match the author's existing skills; it is a design choice, not yet built.
+- **Report status:** `document/` holds the submission .docx (built by `tools/report-builder`, content in `document/src/content.js`). It documents the design and the high-fidelity prototype only. Nothing has been implemented or tested, so the verification plan lists every test case as "Planned".
+- **Still open:** institution details, register number, guide/HOD names and dates (yellow fields in the .docx).

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Daily summary</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-wrap: wrap;">
+
+  <nav aria-label="Admin" style="flex: 1 1 220px; max-width: 260px; background: #0E1726; color: #FFFFFF; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px 20px;">
+      <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 17px; font-weight: 700;">TokenTrail</span>
+    </div>
+    <a href="A1-DailySummary.dc.html" aria-current="page" style="display: block; padding: 10px 12px; border-radius: 10px; background: #1F2B40; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none;">Daily summary</a>
+    <a href="S2-QueueDesk.dc.html" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Live queues</a>
+    <a href="A2-Settings.dc.html" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Clinic setup</a>
+    <a href="#" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Staff &amp; devices</a>
+    <span style="margin-top: auto; padding: 10px 12px; font-size: 13px; color: #C9D1DC;">Signed in as Dr. Anil Hegde<br>Medical Superintendent</span>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <h1 style="margin: 0; font-size: 28px;">Daily summary</h1>
+        <span style="font-size: 14px; color: #4B5563;">OPD Block B · Tue 3 Nov 2026 · registration 08:00–13:00</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+          <span style="color: #4B5563;">Date</span>
+          <select style="height: 40px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 14px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;">
+            <option>Tue 3 Nov 2026</option><option>Mon 2 Nov 2026</option>
+          </select>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+          <span style="color: #4B5563;">Department</span>
+          <select style="height: 40px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 14px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;">
+            <option>All departments</option><option>General Medicine</option>
+          </select>
+        </label>
+        <button type="button" style="height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid #C9D1DC; background: #FFFFFF; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">Export CSV</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 13px; color: #4B5563;">Tokens issued</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 34px; font-weight: 600; line-height: 1;">212</span>
+        <span style="font-size: 13px; color: #374151;">Peak 09:00–10:00 · 71 tokens</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 13px; color: #4B5563;">Avg wait, token → call</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 34px; font-weight: 600; line-height: 1;">48 min</span>
+        <span style="font-size: 13px; color: #374151;">Median 41 · longest 112</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 13px; color: #4B5563;">Waited away from hall</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 34px; font-weight: 600; line-height: 1;">61%</span>
+        <span style="font-size: 13px; color: #374151;">Self-reported · 97 of 212 answered</span>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 13px; color: #4B5563;">Missed turns</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 34px; font-weight: 600; line-height: 1;">4.2%</span>
+        <span style="font-size: 13px; color: #374151;">9 tokens · 6 re-queued</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 14px;">
+      <figure style="margin: 0; background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 15px; font-weight: 600;">Tokens issued per hour</span>
+          <span style="font-size: 13px; color: #4B5563;">Total 212</span>
+        </figcaption>
+        <div role="img" aria-label="Tokens per hour: 8am 58, 9am 71, 10am 46, 11am 25, 12pm 12" style="display: flex; gap: 2px; align-items: stretch; height: 200px; border-bottom: 1px solid #C9D1DC;">
+          <sc-for list="{{hours}}" as="h" hint-placeholder-count="5">
+            <div title="{{h.tip}}" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; padding: 0 10px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #374151;">{{h.v}}</span>
+              <div style="width: 100%; max-width: 56px; height: {{h.pct}}; background: #0A58A8; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 2px;">
+          <sc-for list="{{hours}}" as="h" hint-placeholder-count="5">
+            <span style="flex: 1; text-align: center; font-size: 13px; color: #4B5563;">{{h.l}}</span>
+          </sc-for>
+        </div>
+      </figure>
+
+      <figure style="margin: 0; background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 15px; font-weight: 600;">Missed-turn rate, last 6 OPD days</span>
+          <span style="font-size: 13px; color: #4B5563;">7.9% → 4.2%</span>
+        </figcaption>
+        <div role="img" aria-label="Missed-turn rate: Wed 7.9, Thu 6.8, Fri 6.1, Sat 5.5, Mon 4.9, Tue 4.2 percent" style="display: flex; gap: 2px; align-items: stretch; height: 200px; border-bottom: 1px solid #C9D1DC;">
+          <sc-for list="{{missed}}" as="m" hint-placeholder-count="6">
+            <div title="{{m.tip}}" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; padding: 0 10px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #374151;">{{m.v}}</span>
+              <div style="width: 100%; max-width: 48px; height: {{m.pct}}; background: {{m.fill}}; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 2px;">
+          <sc-for list="{{missed}}" as="m" hint-placeholder-count="6">
+            <span style="flex: 1; text-align: center; font-size: 13px; color: #4B5563;">{{m.l}}</span>
+          </sc-for>
+        </div>
+      </figure>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; display: flex; flex-direction: column;">
+      <div style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: baseline;">
+        <h2 style="margin: 0; font-size: 15px;">By department</h2>
+        <span style="font-size: 13px; color: #4B5563;">Sorted by tokens</span>
+      </div>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px;">
+          <thead>
+            <tr style="text-align: left; color: #4B5563; font-size: 13px;">
+              <th style="padding: 10px 20px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Department</th>
+              <th style="padding: 10px 12px; font-weight: 600; text-align: right; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Tokens</th>
+              <th style="padding: 10px 12px; font-weight: 600; text-align: right; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Avg wait</th>
+              <th style="padding: 10px 12px; font-weight: 600; text-align: right; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Missed</th>
+              <th style="padding: 10px 20px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Waited away from hall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{depts}}" as="d" hint-placeholder-count="4">
+              <tr>
+                <td style="padding: 12px 20px; border-bottom: 1px solid #EEF1F5; font-weight: 500;">{{d.name}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; text-align: right; font-family: 'IBM Plex Mono', monospace;">{{d.tokens}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; text-align: right; font-family: 'IBM Plex Mono', monospace;">{{d.wait}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; text-align: right; font-family: 'IBM Plex Mono', monospace;">{{d.missed}}</td>
+                <td style="padding: 12px 20px; border-bottom: 1px solid #EEF1F5;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="flex: 1; max-width: 220px; height: 8px; border-radius: 4px; background: #E5E9EF;"><div style="height: 8px; border-radius: 4px; background: #0A58A8; width: {{d.away}};"></div></div>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">{{d.away}}</span>
+                  </div>
+                </td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <span style="padding: 12px 20px; font-size: 13px; color: #4B5563;">"Waited away from hall" comes from the optional 2-tap feedback (P7), so it reflects only patients who answered.</span>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const hv = [['8 am', 58], ['9 am', 71], ['10 am', 46], ['11 am', 25], ['12 pm', 12]];
+    const hours = hv.map(([l, v]) => ({ l, v, pct: Math.round(v / 80 * 170) + 'px', tip: l + ': ' + v + ' tokens' }));
+    const mv = [['Wed', 7.9], ['Thu', 6.8], ['Fri', 6.1], ['Sat', 5.5], ['Mon', 4.9], ['Tue', 4.2]];
+    const missed = mv.map(([l, v], i) => ({ l, v: v + '%', pct: Math.round(v / 9 * 170) + 'px', fill: i === mv.length - 1 ? '#0A58A8' : '#9CC3EC', tip: l + ': ' + v + '% missed' }));
+    const depts = [
+      { name: 'General Medicine', tokens: 118, wait: '52 min', missed: 6, away: '64%' },
+      { name: 'Paediatrics', tokens: 46, wait: '39 min', missed: 1, away: '58%' },
+      { name: 'Gynaecology', tokens: 33, wait: '44 min', missed: 2, away: '55%' },
+      { name: 'Dental', tokens: 15, wait: '21 min', missed: 0, away: '70%' }
+    ];
+    return { hours, missed, depts };
+  }
+}
+</script>
+</body>
+</html>

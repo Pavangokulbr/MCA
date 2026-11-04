@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Course trend</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#4F3BC9}a:hover{color:#3A2A9E}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #FFF6DC; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="background: #FFFFFF; border-bottom: 2px solid #111111; padding: 12px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#4F3BC9"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-size: 17px; font-weight: 800;">MoodPulse</span>
+      </div>
+      <nav aria-label="Faculty" style="display: flex; gap: 4px; font-size: 14px; font-weight: 600;">
+        <a href="F2-Today.dc.html" style="padding: 8px 12px; border-radius: 10px; color: #3B3950; text-decoration: none;">Today</a>
+        <a href="F4-CourseTrend.dc.html" aria-current="page" style="padding: 8px 12px; border-radius: 10px; background: #C8F55A; color: #111111; border: 2px solid #111111; border-radius: 999px; text-decoration: none;">My courses</a>
+      </nav>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span style="color: #3B3950;">Prof. K. Raghavendra</span>
+      <a href="F1-Login.dc.html">Sign out</a>
+    </div>
+  </header>
+
+  <main style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 24px 28px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 800;">Data Mining · MCA III Sem A</h1>
+        <span style="font-size: 14px; color: #55536B;">Last 8 lectures · 19 Oct – 4 Nov 2026 · Mon, Wed &amp; Fri 10:00, Room C-204</span>
+      </div>
+      <div role="tablist" aria-label="Course" style="display: flex; gap: 4px; background: #FFFFFF; border: 2px solid #111111; border-radius: 12px; padding: 4px;">
+        <button type="button" role="tab" aria-selected="true" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 0; background: #19172B; color: #FFFFFF; font: 600 14px 'Plus Jakarta Sans', sans-serif;">Section A</button>
+        <button type="button" role="tab" aria-selected="false" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 0; background: transparent; color: #19172B; font: 600 14px 'Plus Jakarta Sans', sans-serif;">Section B</button>
+        <button type="button" role="tab" aria-selected="false" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 0; background: transparent; color: #19172B; font: 600 14px 'Plus Jakarta Sans', sans-serif;">Data Warehousing</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px;">
+      <figure style="margin: 0; background: #FFFFFF; border: 2px solid #111111; border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 16px; font-weight: 800;">Following + Engaged, per lecture</span>
+          <span style="font-size: 13px; color: #55536B;">avg 57%</span>
+        </figcaption>
+        <div role="img" aria-label="Following plus engaged share by lecture: 54, 61, 48, 57, 63, 59, 66, 50 percent" style="display: flex; gap: 2px; height: 200px; align-items: stretch; border-bottom: 1px solid #CFCBDF;">
+          <sc-for list="{{lectures}}" as="l" hint-placeholder-count="8">
+            <div title="{{l.tip}}" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; padding: 0 8px;">
+              <span style="font-size: 13px; font-weight: 600; color: #3B3950;">{{l.v}}</span>
+              <div style="width: 100%; max-width: 40px; height: {{l.h}}; background: {{l.fill}}; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 2px;">
+          <sc-for list="{{lectures}}" as="l" hint-placeholder-count="8">
+            <span style="flex: 1; text-align: center; font-size: 12px; color: #55536B;">{{l.d}}</span>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: #55536B;">Dips on 23 Oct (Decision trees) and today (Apriori) — both first lectures of a new algorithm.</span>
+      </figure>
+
+      <figure style="margin: 0; background: #FFFFFF; border: 2px solid #111111; border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <figcaption style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 16px; font-weight: 800;">Participation, per lecture</span>
+          <span style="font-size: 13px; color: #55536B;">phones that tapped ÷ enrolled</span>
+        </figcaption>
+        <div role="img" aria-label="Participation by lecture: 71, 68, 74, 69, 77, 73, 80, 79 percent" style="display: flex; gap: 2px; height: 200px; align-items: stretch; border-bottom: 1px solid #CFCBDF;">
+          <sc-for list="{{lectures}}" as="l" hint-placeholder-count="8">
+            <div title="{{l.ptip}}" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; padding: 0 8px;">
+              <span style="font-size: 13px; font-weight: 600; color: #3B3950;">{{l.p}}</span>
+              <div style="width: 100%; max-width: 40px; height: {{l.ph}}; background: #4F3BC9; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 2px;">
+          <sc-for list="{{lectures}}" as="l" hint-placeholder-count="8">
+            <span style="flex: 1; text-align: center; font-size: 12px; color: #55536B;">{{l.d}}</span>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: #55536B;">Mostly above 70% for 3 weeks — novelty is not wearing off yet.</span>
+      </figure>
+    </div>
+
+    <figure style="margin: 0; background: #FFFFFF; border: 2px solid #111111; border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px;">
+      <figcaption style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: baseline;">
+        <span style="font-size: 16px; font-weight: 800;">Where in the hour do students struggle?</span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #55536B;">Lost + Confused share
+          <span style="display: flex; gap: 2px;"><span style="width: 22px; height: 12px; background: #FDF1E2;"></span><span style="width: 22px; height: 12px; background: #F9D3A6;"></span><span style="width: 22px; height: 12px; background: #F2A65A;"></span><span style="width: 22px; height: 12px; background: #D9772B;"></span><span style="width: 22px; height: 12px; background: #A9500F;"></span></span>
+          0% → 70%+
+        </span>
+      </figcaption>
+      <div style="overflow-x: auto;">
+        <div role="img" aria-label="Heatmap of struggle share by lecture and minute; recurring peaks around minute 20 to 30" style="min-width: 760px; display: grid; grid-template-columns: 90px repeat(11, minmax(0, 1fr)); gap: 2px; font-size: 12px;">
+          <span></span>
+          <sc-for list="{{cols}}" as="c" hint-placeholder-count="11">
+            <span style="text-align: center; color: #55536B; padding-bottom: 4px;">{{c}}</span>
+          </sc-for>
+          <sc-for list="{{heat}}" as="r" hint-placeholder-count="8">
+            <span style="color: #3B3950; display: flex; align-items: center; font-weight: 600;">{{r.d}}</span>
+            <sc-for list="{{r.cells}}" as="x" hint-placeholder-count="11">
+              <span title="{{x.tip}}" style="height: 30px; border-radius: 4px; background: {{x.bg}};"></span>
+            </sc-for>
+          </sc-for>
+        </div>
+      </div>
+      <span style="font-size: 14px; color: #111111; line-height: 1.5; background: #FFE45C; border: 2px solid #111111; border-radius: 16px; padding: 12px 14px;"><b>Pattern:</b> struggle clusters at minutes 20–30 in 5 of 8 lectures — typically right after the formal definition, before an example. Consider moving examples earlier.</span>
+    </figure>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const raw = [['19 Oct', 54, 71], ['21 Oct', 61, 68], ['23 Oct', 48, 74], ['26 Oct', 57, 69], ['28 Oct', 63, 77], ['30 Oct', 59, 73], ['2 Nov', 66, 80], ['4 Nov', 50, 79]];
+    const lectures = raw.map(([d, v, p], i) => ({ d, v: v + '%', p: p + '%', h: Math.round(v / 100 * 170) + 'px', ph: Math.round(p / 100 * 170) + 'px',
+      fill: i === raw.length - 1 ? '#1F4FBF' : '#5E8FEA', tip: d + ': ' + v + '% following or engaged', ptip: d + ': ' + p + '% participation' }));
+    const cols = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50'];
+    const ramp = ['#FDF1E2', '#F9D3A6', '#F2A65A', '#D9772B', '#A9500F'];
+    const peaks = [1, 0, 1, 0, 1, 0, 0, 1];
+    const heat = raw.map(([d], r) => ({ d, cells: cols.map((c, i) => {
+      let v = 18 + ((r * 7 + i * 13) % 11);
+      if (peaks[r] && (i === 4 || i === 5)) v += 34 + (r % 3) * 6;
+      if (peaks[r] && i === 6) v += 16;
+      if (i >= 9) v += 8;
+      if (r === 7) v = [7, 8, 15, 33, 64, 73, 43, 21, 7, 11, 33][i];
+      const step = v < 15 ? 0 : v < 30 ? 1 : v < 45 ? 2 : v < 60 ? 3 : 4;
+      return { bg: ramp[step], tip: d + ', minute ' + c + ': ' + v + '% lost or confused' };
+    }) }));
+    return { lectures, cols, heat };
+  }
+}
+</script>
+</body>
+</html>

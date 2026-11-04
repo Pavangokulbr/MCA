@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Staff sign-in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+input:focus,select:focus{outline:3px solid #9CC3EC;outline-offset:1px}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-wrap: wrap;">
+  <div style="flex: 1 1 420px; background: #0E1726; color: #FFFFFF; padding: 56px 6%; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 20px; font-weight: 700;">TokenTrail</span>
+      <span style="font-size: 13px; color: #C9D1DC; border-left: 1px solid #3B4658; padding-left: 12px;">Staff console</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 460px;">
+      <span style="font-size: 40px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;">City General Hospital</span>
+      <span style="font-size: 18px; color: #C9D1DC; line-height: 1.5;">OPD Block B · General Medicine, Paediatrics, Gynaecology, Dental</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 520px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 600;">08:00</span><span style="font-size: 13px; color: #C9D1DC;">Registration opens</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 600;">4</span><span style="font-size: 13px; color: #C9D1DC;">Departments live</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 600;">7</span><span style="font-size: 13px; color: #C9D1DC;">Rooms today</span></div>
+    </div>
+  </div>
+
+  <div style="flex: 1 1 480px; display: flex; align-items: center; justify-content: center; padding: 56px 24px; box-sizing: border-box;">
+    <form style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700;">Sign in to start your shift</h1>
+        <span style="font-size: 15px; color: #4B5563;">Wednesday, 4 November 2026</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="sid" style="font-size: 14px; font-weight: 600;">Staff ID</label>
+        <input id="sid" value="CGH-REG-0142" style="height: 48px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 14px; font: 500 16px 'IBM Plex Mono', monospace; color: #0E1726; background: #FFFFFF;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="pin" style="font-size: 14px; font-weight: 600;">6-digit PIN</label>
+        <input id="pin" type="password" value="482913" style="height: 48px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 14px; font: 500 16px 'IBM Plex Sans', sans-serif; letter-spacing: 0.3em; background: #FFFFFF;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="post" style="font-size: 14px; font-weight: 600;">Working at</label>
+        <select id="post" style="height: 48px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 500 16px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;">
+          <option>Registration Desk 2 — OPD Block B</option>
+          <option>Registration Desk 1 — OPD Block B</option>
+          <option>Room 3 — General Medicine</option>
+          <option>Administration</option>
+        </select>
+        <span style="font-size: 13px; color: #4B5563;">Chosen once per shift. Room staff see the 'Call next' console.</span>
+      </div>
+      <button type="submit" style="height: 52px; border: 0; border-radius: 12px; background: #0A58A8; color: #FFFFFF; font: 600 16px 'IBM Plex Sans', sans-serif;">Start shift</button>
+      <div style="display: flex; justify-content: space-between; font-size: 14px;">
+        <a href="#">Forgot PIN? Ask admin</a>
+        <span style="color: #4B5563;">Signed-in devices: 3</span>
+      </div>
+    </form>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Student mood pulse</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 390px; height: 844px; box-sizing: border-box; background: {{bg}}; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 14px; padding: 18px 18px 22px;">
+
+  <svg aria-hidden="true" width="120" height="120" viewBox="0 0 120 120" style="position: absolute; right: -18px; top: 70px; opacity: 0.9;"><path d="M60 8l9 34 34 9-34 9-9 34-9-34-34-9 34-9z" fill="#FFFFFF" stroke="#111111" stroke-width="3" stroke-linejoin="round"></path></svg>
+
+  <div style="position: relative; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true"><rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="#111111"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="font-size: 18px; font-weight: 800;">MoodPulse</span>
+    </div>
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #FFFFFF; background: #111111; border-radius: 999px; padding: 7px 12px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+      Anonymous
+    </span>
+  </div>
+
+  <sc-if value="{{picking}}" hint-placeholder-val="{{true}}">
+    <div style="position: relative; display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+      <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 70px;">
+        <span style="align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.04em; background: #FFFFFF; border: 2px solid #111111; border-radius: 999px; padding: 4px 10px;">ROOM C-204 · DATA MINING · LIVE</span>
+        <h1 style="margin: 4px 0 0; font-size: 32px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em;">How's class going for you?</h1>
+      </div>
+
+      <div role="radiogroup" aria-label="Your mood" style="display: flex; flex-direction: column; gap: 8px;">
+        <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+          <button type="button" role="radio" aria-checked="{{m.checked}}" onClick="{{m.pick}}" style="display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 6px 14px 6px 8px; border-radius: 18px; border: 2px solid #111111; background: {{m.bg}}; box-shadow: {{m.shadow}}; text-align: left; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; color: #111111;">
+            <span style="width: 44px; height: 44px; border-radius: 12px; background: {{m.tile}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" stroke="#111111" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="9" cy="10" r="1" fill="#111111" stroke="none"></circle><circle cx="15" cy="10" r="1" fill="#111111" stroke="none"></circle><path d="{{m.mouth}}" fill="none"></path><path d="{{m.brow}}" fill="none"></path></svg>
+            </span>
+            <span style="display: flex; flex-direction: column; gap: 1px; flex-grow: 1;">
+              <span style="font-size: 17px; font-weight: 800;">{{m.label}}</span>
+              <span style="font-size: 13px; color: #333333;">{{m.hint}}</span>
+            </span>
+            <span style="width: 22px; height: 22px; box-sizing: border-box; border-radius: 50%; border: {{m.ring}}; background: #FFFFFF;"></span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 14px; font-weight: 800;">Pace <span style="font-weight: 500;">(optional)</span></span>
+        <div role="group" aria-label="Pace" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+          <sc-for list="{{paces}}" as="p" hint-placeholder-count="3">
+            <button type="button" aria-pressed="{{p.pressed}}" onClick="{{p.pick}}" style="height: 44px; border-radius: 999px; border: 2px solid #111111; background: {{p.bg}}; color: {{p.fg}}; font: 700 14px 'Plus Jakarta Sans', sans-serif; cursor: pointer;">{{p.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <button type="button" onClick="{{send}}" aria-disabled="{{sendDisabled}}" style="margin-top: auto; height: 58px; border-radius: 999px; border: 2px solid #111111; background: {{sendBg}}; color: {{sendFg}}; font: 800 16px 'Plus Jakarta Sans', sans-serif; cursor: pointer;">{{sendLabel}}</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+    <div style="position: relative; display: flex; flex-direction: column; gap: 14px; flex-grow: 1;">
+      <div role="status" style="margin-top: 10px; background: #FFFFFF; border: 2px solid #111111; box-shadow: 6px 6px 0 #111111; border-radius: 28px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+        <span style="width: 88px; height: 88px; border-radius: 26px; background: {{chosen.tile}}; border: 2px solid #111111; display: flex; align-items: center; justify-content: center;">
+          <svg width="62" height="62" viewBox="0 0 24 24" fill="#FFFFFF" stroke="#111111" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="9" cy="10" r="1" fill="#111111" stroke="none"></circle><circle cx="15" cy="10" r="1" fill="#111111" stroke="none"></circle><path d="{{chosen.mouth}}" fill="none"></path><path d="{{chosen.brow}}" fill="none"></path></svg>
+        </span>
+        <span style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">Thanks — got it!</span>
+        <span style="font-size: 15px; color: #333333; line-height: 1.5;">You said <b>{{chosen.label}}</b>{{paceText}} at 10:24. Prof. Raghavendra sees only the class total, never who tapped.</span>
+      </div>
+      <div style="background: #FFE45C; border: 2px solid #111111; border-radius: 18px; padding: 14px 16px; display: flex; gap: 12px; align-items: center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <span style="font-size: 14px; line-height: 1.45;"><b>Next tap opens at 10:34.</b> Scan again whenever your mood changes.</span>
+      </div>
+      <div style="background: #FFFFFF; border: 2px solid #111111; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.45;">
+        <span style="font-weight: 800;">What we store</span>
+        <span style="color: #333333;">Room, time, your tap, and a random code that resets every day (only to stop repeat taps).</span>
+        <span style="font-weight: 800;">What we never store</span>
+        <span style="color: #333333;">Your name, roll number, phone number, location or contacts.</span>
+      </div>
+      <button type="button" onClick="{{reset}}" style="margin-top: auto; height: 56px; border-radius: 999px; border: 2px solid #111111; background: #111111; color: #FFFFFF; font: 800 16px 'Plus Jakarta Sans', sans-serif; cursor: pointer;">Done</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"initialMood":{"editor":"enum","options":["none","lost","confused","okay","following","engaged"],"default":"none"},"initialPace":{"editor":"enum","options":["none","fast","right","slow"],"default":"none"},"initialDone":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const mood = st.mood !== undefined ? st.mood : (this.props.initialMood ?? 'none');
+    const pace = st.pace !== undefined ? st.pace : (this.props.initialPace ?? 'none');
+    const isDone = st.done !== undefined ? st.done : !!this.props.initialDone;
+    const M = [
+      { id: 'lost', label: 'Lost', hint: "I can't follow this", tile: '#C2410C', mouth: 'M8 16.5c1.2-1.6 2.5-2.2 4-2.2s2.8.6 4 2.2', brow: 'M7.5 7.2l2.6 1M16.5 7.2l-2.6 1' },
+      { id: 'confused', label: 'Confused', hint: 'Some parts are unclear', tile: '#F08C2E', mouth: 'M8 15.5c.9-.8 1.8-.8 2.7 0s1.8.8 2.6 0 1.8-.8 2.7 0', brow: 'M14 7.4l2.6-.6' },
+      { id: 'okay', label: 'Okay', hint: 'Getting by', tile: '#B9B5C4', mouth: 'M8.5 15h7', brow: '' },
+      { id: 'following', label: 'Following', hint: 'I understand it', tile: '#5E8FEA', mouth: 'M8 14c1.2 1.4 2.5 2 4 2s2.8-.6 4-2', brow: '' },
+      { id: 'engaged', label: 'Engaged', hint: 'Really interested', tile: '#1F4FBF', mouth: 'M7.5 13.5c1.2 2.2 2.8 3.2 4.5 3.2s3.3-1 4.5-3.2', brow: 'M7.8 7.4c.8-.6 1.7-.6 2.4 0M13.8 7.4c.8-.6 1.7-.6 2.4 0' }
+    ];
+    const moods = M.map((m) => {
+      const on = m.id === mood;
+      return { ...m, checked: on ? 'true' : 'false',
+        bg: on ? '#FFE45C' : '#FFFFFF', shadow: on ? '4px 4px 0 #111111' : 'none',
+        ring: on ? '7px solid #111111' : '2px solid #111111',
+        pick: () => this.setState({ mood: m.id }) };
+    });
+    const P = [{ id: 'fast', label: 'Too fast' }, { id: 'right', label: 'Just right' }, { id: 'slow', label: 'Too slow' }];
+    const paces = P.map((p) => {
+      const on = p.id === pace;
+      return { ...p, pressed: on ? 'true' : 'false', bg: on ? '#111111' : '#FFFFFF', fg: on ? '#FFFFFF' : '#111111',
+        pick: () => this.setState({ pace: on ? 'none' : p.id }) };
+    });
+    const has = mood !== 'none';
+    const chosen = M.find((m) => m.id === mood) || M[2];
+    const paceObj = P.find((p) => p.id === pace);
+    return {
+      moods, paces, chosen,
+      picking: !isDone, done: isDone,
+      bg: isDone ? '#FF8CC6' : '#C8F55A',
+      paceText: paceObj ? ' · ' + paceObj.label.toLowerCase() : '',
+      sendDisabled: has ? 'false' : 'true',
+      sendBg: has ? '#111111' : '#FFFFFF', sendFg: has ? '#FFFFFF' : '#333333',
+      sendLabel: has ? 'Send anonymously →' : 'Pick how you feel to send',
+      send: () => { if (has) this.setState({ done: true }); },
+      reset: () => this.setState({ done: false, mood: 'none', pace: 'none' })
+    };
+  }
+}
+</script>
+</body>
+</html>

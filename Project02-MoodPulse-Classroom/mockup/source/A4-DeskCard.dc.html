@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desk QR card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="position: relative; overflow: hidden; width: 420px; height: 595px; box-sizing: border-box; background: #C8F55A; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; padding: 28px; display: flex; flex-direction: column; gap: 16px; border: 3px solid #111111; border-radius: 24px;">
+  <svg aria-hidden="true" width="110" height="110" viewBox="0 0 120 120" style="position: absolute; right: -14px; top: -14px;"><path d="M60 8l9 34 34 9-34 9-9 34-9-34-34-9 34-9z" fill="#FFE45C" stroke="#111111" stroke-width="3" stroke-linejoin="round"></path></svg>
+  <div style="position: relative; display: flex; align-items: center; gap: 8px;">
+    <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true"><rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="#111111"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <span style="font-size: 18px; font-weight: 800;">MoodPulse</span>
+  </div>
+  <span style="position: relative; font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -0.03em;">How's class<br>going?</span>
+  <div style="position: relative; display: flex; gap: 16px; align-items: center;">
+    <div style="background: #FFFFFF; border: 3px solid #111111; border-radius: 18px; padding: 10px; box-shadow: 5px 5px 0 #111111;">
+      <div role="img" aria-label="QR code for Room C-204 (placeholder pattern)" style="width: 168px; height: 168px; display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); grid-template-rows: repeat(21, minmax(0, 1fr));">
+        <sc-for list="{{qr}}" as="c" hint-placeholder-count="441">
+          <span style="background: {{c.c}};"></span>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; font-weight: 700;">
+      <span>1. Scan</span>
+      <span>2. Tap one face</span>
+      <span>3. Done</span>
+    </div>
+  </div>
+  <div style="position: relative; display: flex; gap: 6px;">
+    <sc-for list="{{tiles}}" as="t" hint-placeholder-count="5">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 62px;">
+        <span style="width: 40px; height: 40px; border-radius: 12px; border: 2px solid #111111; background: {{t.c}};"></span>
+        <span style="font-size: 11px; font-weight: 800;">{{t.l}}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="position: relative; margin-top: auto; background: #111111; color: #FFFFFF; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px;">
+    <span style="font-size: 15px; font-weight: 800;">Anonymous by design. No login. No name.</span>
+    <span style="font-size: 12px;">Room C-204 · Dept. of Computer Applications · QR v3</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":420,"height":595}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const n = 21, seed = 204, qr = [];
+    const finder = (x, y, cx, cy) => {
+      const dx = x - cx, dy = y - cy;
+      if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return null;
+      return Math.max(Math.abs(dx - 3), Math.abs(dy - 3)) !== 2;
+    };
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+      let v = finder(x, y, 0, 0);
+      if (v === null) v = finder(x, y, n - 7, 0);
+      if (v === null) v = finder(x, y, 0, n - 7);
+      if (v === null) {
+        const sep = (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9);
+        if (sep) v = false;
+        else if (y === 6 || x === 6) v = (x + y) % 2 === 0;
+        else { const h = (Math.imul(x + 1, 73856093) ^ Math.imul(y + 1, 19349663) ^ Math.imul(seed, 83492791)) >>> 0; v = (h % 11) < 5; }
+      }
+      qr.push({ c: v ? '#111111' : '#FFFFFF' });
+    }
+    return { qr, tiles: [{ c: '#C2410C', l: 'Lost' }, { c: '#F08C2E', l: 'Confused' }, { c: '#B9B5C4', l: 'Okay' }, { c: '#5E8FEA', l: 'Following' }, { c: '#1F4FBF', l: 'Engaged' }] };
+  }
+}
+</script>
+</body>
+</html>
