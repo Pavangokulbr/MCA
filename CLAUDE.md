@@ -49,8 +49,8 @@ Use **progressive disclosure**:
 
 ## Current Project PRDs
 
-1. [PRD-TokenTrail.md](./PRD-TokenTrail.md)  
+1. [Project01-TokenTrail/PRD.md](./Project01-TokenTrail/PRD.md)  
    Non-technical PRD for smart virtual queue in clinics.
 
-2. [PRD-MoodPulse-Classroom.md](./PRD-MoodPulse-Classroom.md)  
+2. [Project02-MoodPulse-Classroom/PRD.md](./Project02-MoodPulse-Classroom/PRD.md)  
    Non-technical PRD for anonymous classroom mood pulse with fixed classroom QR.
