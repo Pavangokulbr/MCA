@@ -35,6 +35,9 @@ Use **progressive disclosure**:
 6. [06-agent-workflow.md](./.claude/06-agent-workflow.md)  
    Step-by-step way the AI agent should assist section-by-section.
 
+7. [07-PPT-reference.md](./.claude/07-PPT-reference.md)  
+   Guidelines and reusable template for project presentation slides.
+
 ## Standard Execution Order
 
 1. Read this file.
