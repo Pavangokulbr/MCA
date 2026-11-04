@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Room timetable</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#333333}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #FFF6DC; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="background: #FFFFFF; border-bottom: 2px solid #111111; padding: 12px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true"><rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="#111111"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-size: 17px; font-weight: 800;">MoodPulse</span>
+        <span style="font-size: 12px; font-weight: 800; background: #6FD3FF; border: 2px solid #111111; border-radius: 999px; padding: 2px 10px;">Management</span>
+      </div>
+      <nav aria-label="Management" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 14px; font-weight: 700;">
+        <a href="A1-DeptOverview.dc.html" style="padding: 7px 14px; border-radius: 999px; border: 2px solid transparent; text-decoration: none;">Overview</a>
+        <a href="A2-Classrooms.dc.html" style="padding: 7px 14px; border-radius: 999px; border: 2px solid transparent; text-decoration: none;">Classrooms &amp; QR</a>
+        <a href="A3-Timetable.dc.html" aria-current="page" style="padding: 7px 14px; border-radius: 999px; background: #C8F55A; border: 2px solid #111111; text-decoration: none;">Timetable</a>
+      </nav>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span>Dr. Meenakshi Sundaram · HOD</span>
+      <a href="F1-Login.dc.html" style="font-weight: 700;">Sign out</a>
+    </div>
+  </header>
+
+  <main style="width: 100%; max-width: 1300px; margin: 0 auto; padding: 24px 28px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em;">Room C-204 timetable</h1>
+        <span style="font-size: 14px;">Odd semester 2026 · 22 slots mapped · last updated 28 Oct by Office Admin</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;">Room
+          <select style="height: 44px; border: 2px solid #111111; border-radius: 999px; padding: 0 14px; font: 600 14px 'Plus Jakarta Sans', sans-serif; background: #FFFFFF; color: #111111;">
+            <option>C-204</option><option>C-101</option><option>C-102</option><option>C-206</option>
+          </select>
+        </label>
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid #111111; background: #FFFFFF; font: 700 14px 'Plus Jakarta Sans', sans-serif; color: #111111;">Import CSV</button>
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid #111111; background: #111111; font: 800 14px 'Plus Jakarta Sans', sans-serif; color: #FFFFFF;">Save changes</button>
+      </div>
+    </div>
+
+    <div role="alert" style="background: #FF8CC6; border: 2px solid #111111; border-radius: 18px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; font-size: 14px;">
+      <span><b>Thu 15:00 has 9 blocked scans but no class mapped.</b> If a class really meets then, add it so its pulse is counted.</span>
+      <button type="button" style="height: 38px; padding: 0 16px; border-radius: 999px; border: 2px solid #111111; background: #FFFFFF; font: 700 13px 'Plus Jakarta Sans', sans-serif; color: #111111;">Add Thu 15:00</button>
+    </div>
+
+    <section style="background: #FFFFFF; border: 2px solid #111111; border-radius: 24px; padding: 18px; overflow-x: auto;">
+      <div style="min-width: 900px; display: grid; grid-template-columns: 70px repeat(6, minmax(0, 1fr)); gap: 8px; font-size: 13px;">
+        <span></span>
+        <sc-for list="{{slots}}" as="s" hint-placeholder-count="6">
+          <span style="font-weight: 800; text-align: center; padding: 4px 0 6px;">{{s}}</span>
+        </sc-for>
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+          <span style="font-weight: 800; display: flex; align-items: center;">{{r.d}}</span>
+          <sc-for list="{{r.cells}}" as="c" hint-placeholder-count="6">
+            <div style="min-height: 74px; box-sizing: border-box; border-radius: 14px; border: {{c.bd}}; background: {{c.bg}}; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; justify-content: center;">
+              <span style="font-weight: 800; font-size: 13px;">{{c.t}}</span>
+              <span style="font-size: 12px;">{{c.s}}</span>
+            </div>
+          </sc-for>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 700;">
+      <sc-for list="{{legend}}" as="l" hint-placeholder-count="7">
+        <span style="border: 2px solid #111111; border-radius: 999px; padding: 4px 12px; background: {{l.c}};">{{l.n}}</span>
+      </sc-for>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const K = {
+      CC: ['Cloud Computing', 'MCA III-A · Dr. Ananya Rao', '#6FD3FF'],
+      DM: ['Data Mining', 'MCA III-A · Prof. K. Raghavendra', '#C8F55A'],
+      ST: ['Software Testing', 'MCA III-A · Prof. Vivek Menon', '#FFE45C'],
+      RM: ['Research Methodology', 'MCA III-A · Dr. Shalini Bhat', '#FF8CC6'],
+      BD: ['Big Data Analytics', 'MCA III-A elective · Dr. Ananya Rao', '#B9A4FF'],
+      PY: ['Python Programming', 'MCA I-A · Prof. Vivek Menon', '#FFB38A'],
+      MN: ['Mentoring hour', 'MCA III-A · class advisor', '#FFFFFF']
+    };
+    const slots = ['09:00', '10:00', '11:10', '12:05', '14:00', '15:00'];
+    const plan = [
+      ['Mon', ['CC', 'DM', 'ST', 'RM', '', '']], ['Tue', ['RM', 'ST', 'CC', 'BD', 'PY', '']],
+      ['Wed', ['CC', 'DM', 'ST', 'RM', '', '']], ['Thu', ['CC', 'ST', 'RM', 'BD', '', '']],
+      ['Fri', ['ST', 'DM', 'CC', 'RM', '', '']], ['Sat', ['MN', '', '', '', '', '']]
+    ];
+    const rows = plan.map(([d, cs]) => ({ d, cells: cs.map((k) => k
+      ? { t: K[k][0], s: K[k][1], bg: K[k][2], bd: '2px solid #111111' }
+      : { t: '+', s: 'Free', bg: '#FFFDF5', bd: '2px dashed #C9C3AE' }) }));
+    const legend = Object.keys(K).map((k) => ({ n: K[k][0], c: K[k][2] }));
+    return { slots, rows, legend };
+  }
+}
+</script>
+</body>
+</html>

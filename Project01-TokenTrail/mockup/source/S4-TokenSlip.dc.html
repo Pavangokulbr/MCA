@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Printed token slip</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 302px; height: 640px; box-sizing: border-box; background: #FFFFFF; color: #000000; font-family: 'IBM Plex Sans', system-ui, sans-serif; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;">
+  <span style="font-size: 14px; font-weight: 700;">CITY GENERAL HOSPITAL</span>
+  <span style="font-size: 12px;">OPD Block B · Registration Desk 2</span>
+  <div style="width: 100%; border-top: 2px dashed #000000;"></div>
+  <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em;">YOUR TOKEN</span>
+  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 60px; font-weight: 600; line-height: 1;">B-053</span>
+  <span style="font-size: 14px; font-weight: 600;">General Medicine · Room 3</span>
+  <span style="font-size: 12px;">Wed 4 Nov 2026 · issued 10:22</span>
+  <div role="img" aria-label="QR code (placeholder pattern)" style="width: 147px; height: 147px; display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); grid-template-rows: repeat(21, minmax(0, 1fr)); margin: 4px 0;">
+    <sc-for list="{{qr}}" as="c" hint-placeholder-count="441">
+      <span style="background: {{c.c}};"></span>
+    </sc-for>
+  </div>
+  <div style="width: 100%; display: flex; flex-direction: column; gap: 6px; text-align: left; font-size: 13px; line-height: 1.35;">
+    <span><b>1.</b> Scan with your phone camera to see the live queue.</span>
+    <span><b>2.</b> You may wait nearby. You will be alerted at 10, 5 and 2 ahead.</span>
+    <span><b>3.</b> No smartphone? Alerts come by SMS, or ask at Desk 2.</span>
+  </div>
+  <div style="width: 100%; border-top: 2px dashed #000000; margin-top: auto;"></div>
+  <span style="font-size: 11px;">Valid today only · 1 re-entry if missed</span>
+  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px;">tt.example.in/t/7KQ2M9XD</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":302,"height":640}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const n = 21, seed = 53, qr = [];
+    const finder = (x, y, cx, cy) => {
+      const dx = x - cx, dy = y - cy;
+      if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return null;
+      return Math.max(Math.abs(dx - 3), Math.abs(dy - 3)) !== 2;
+    };
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+      let on = finder(x, y, 0, 0);
+      if (on === null) on = finder(x, y, n - 7, 0);
+      if (on === null) on = finder(x, y, 0, n - 7);
+      if (on === null) {
+        const sep = (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9);
+        if (sep) on = false;
+        else if (y === 6 || x === 6) on = (x + y) % 2 === 0;
+        else { const h = (Math.imul(x + 1, 73856093) ^ Math.imul(y + 1, 19349663) ^ Math.imul(seed, 83492791)) >>> 0; on = (h % 11) < 5; }
+      }
+      qr.push({ c: on ? '#000000' : '#FFFFFF' });
+    }
+    return { qr };
+  }
+}
+</script>
+</body>
+</html>
