@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Faculty sign-in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#4F3BC9}a:hover{color:#3A2A9E}
+input:focus{outline:3px solid #C7BEF5;outline-offset:1px}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #FFF6DC; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-wrap: wrap;">
+  <div style="flex: 1 1 420px; background: #FF8CC6; color: #111111; border-right: 2px solid #111111; padding: 56px 6%; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#4F3BC9"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <span style="font-size: 20px; font-weight: 800;">MoodPulse</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 480px;">
+      <span style="font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;">See how your lecture is landing — while you can still change it.</span>
+      <span style="font-size: 17px; color: #111111; line-height: 1.55;">Department of Computer Applications · Block C</span>
+    </div>
+    <div role="img" aria-label="Sample pulse: mostly following and engaged" style="display: flex; gap: 2px; height: 14px; max-width: 420px; border-radius: 7px; overflow: hidden;">
+      <span style="flex: 9; background: #C2410C;"></span><span style="flex: 21; background: #F08C2E;"></span><span style="flex: 20; background: #B9B5C4;"></span><span style="flex: 31; background: #5E8FEA;"></span><span style="flex: 19; background: #1F4FBF;"></span>
+    </div>
+  </div>
+  <div style="flex: 1 1 480px; display: flex; align-items: center; justify-content: center; padding: 56px 24px; box-sizing: border-box;">
+    <form style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 800;">Faculty &amp; staff sign-in</h1>
+        <span style="font-size: 15px; color: #55536B;">Students don't need an account — they just scan.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="em" style="font-size: 14px; font-weight: 700;">College email</label>
+        <input id="em" value="k.raghavendra@dca.example.edu" style="height: 48px; border: 2px solid #111111; border-radius: 12px; padding: 0 14px; font: 500 16px 'Plus Jakarta Sans', sans-serif; background: #FFFFFF; color: #19172B;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="pw" style="font-size: 14px; font-weight: 700;">Password</label>
+        <input id="pw" type="password" value="••••••••••" style="height: 48px; border: 2px solid #111111; border-radius: 12px; padding: 0 14px; font: 500 16px 'Plus Jakarta Sans', sans-serif; background: #FFFFFF;">
+      </div>
+      <a href="F2-Today.dc.html" style="height: 54px; border-radius: 999px; background: #111111; color: #FFFFFF; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none;">Sign in</a>
+      <div style="display: flex; justify-content: space-between; font-size: 14px;">
+        <a href="#">Forgot password?</a>
+        <span style="color: #55536B;">Roles: Faculty · Coordinator · HOD</span>
+      </div>
+    </form>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

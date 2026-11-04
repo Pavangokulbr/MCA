@@ -1,0 +1,49 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-04T18:05:00Z"},
+  "title": "MoodPulse Classroom Mockup",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "00 · Overview, flows & visual language"},
+    "StudentPulse.dc.html": {"x": 0, "y": 1500, "w": 390, "h": 844, "title": "M1 · Scan → pick a mood (interactive)", "is_interactive": true},
+    "M2-Selected.dc.html": {"x": 470, "y": 1500, "w": 390, "h": 844, "title": "M2 · Mood + pace selected", "is_interactive": true},
+    "M3-Thanks.dc.html": {"x": 940, "y": 1500, "w": 390, "h": 844, "title": "M3 · Recorded anonymously", "is_interactive": true},
+    "M4-AlreadyIn.dc.html": {"x": 1410, "y": 1500, "w": 390, "h": 844, "title": "M4 · Already responded (cooldown)"},
+    "M5-NoLecture.dc.html": {"x": 1880, "y": 1500, "w": 390, "h": 844, "title": "M5 · No lecture right now"},
+    "F1-Login.dc.html": {"x": 0, "y": 3450, "w": 1440, "h": 900, "title": "F1 · Faculty & management sign-in", "expand": "fill"},
+    "F2-Today.dc.html": {"x": 1520, "y": 3450, "w": 1440, "h": 1000, "title": "F2 · Faculty — today's lectures", "expand": "fill"},
+    "F3-LectureDetail.dc.html": {"x": 3040, "y": 3450, "w": 1440, "h": 1200, "title": "F3 · Lecture pulse timeline", "expand": "fill"},
+    "F4-CourseTrend.dc.html": {"x": 4560, "y": 3450, "w": 1440, "h": 1100, "title": "F4 · Course trend across weeks", "expand": "fill"},
+    "A1-DeptOverview.dc.html": {"x": 0, "y": 5900, "w": 1440, "h": 1100, "title": "A1 · Department overview — slot heatmap", "expand": "fill"},
+    "A2-Classrooms.dc.html": {"x": 1520, "y": 5900, "w": 1440, "h": 1000, "title": "A2 · Classrooms & QR codes", "expand": "fill"},
+    "A3-Timetable.dc.html": {"x": 3040, "y": 5900, "w": 1440, "h": 1000, "title": "A3 · Room timetable (slot mapping)", "expand": "fill"},
+    "A4-DeskCard.dc.html": {"x": 4560, "y": 5900, "w": 420, "h": 595, "title": "A4 · Printed desk QR card (A6)"}
+  },
+  "order": [
+    "Main.dc.html",
+    "StudentPulse.dc.html", "M2-Selected.dc.html", "M3-Thanks.dc.html", "M4-AlreadyIn.dc.html", "M5-NoLecture.dc.html",
+    "F1-Login.dc.html", "F2-Today.dc.html", "F3-LectureDetail.dc.html", "F4-CourseTrend.dc.html",
+    "A1-DeptOverview.dc.html", "A2-Classrooms.dc.html", "A3-Timetable.dc.html", "A4-DeskCard.dc.html"
+  ],
+  "notes": {
+    "readme": {"x": 1540, "y": 0, "w": 560, "size": "m", "fill": "purple", "text": "How to read this file\n\n• Rows = personas: Student (phone, no login), Faculty, Management.\n• M1–M3 are ONE working prototype — press Play on M1 and tap through.\n• Every name, course and number is SAMPLE DATA for design only. It is NOT test evidence: Chapter 7–8 data must come from a real class session.\n• Mood scale is diverging (orange = struggling, grey = neutral, blue = with it) and is always text-labelled, so it never relies on colour alone."},
+    "tA": {"x": 0, "y": 1200, "kind": "title1", "maxW": 2270, "text": "Student · scan desk QR, one tap, done"},
+    "nM1": {"x": 0, "y": 2384, "w": 390, "fill": "gray", "text": "Context is pre-filled from the QR + timetable (room, course, slot), so the student's only job is one tap. Faces are custom SVG, not OS emoji: identical on every phone and no device-specific rendering to fingerprint."},
+    "nM2": {"x": 470, "y": 2384, "w": 390, "fill": "gray", "text": "Pace is optional and separate from mood: 'confused because too fast' and 'confused because unclear' need different fixes from the faculty. Send stays one thumb-reach away."},
+    "nM3": {"x": 940, "y": 2384, "w": 390, "fill": "gray", "text": "States exactly what is stored and what isn't. Trust is the product: if students suspect tracking, participation and honesty both collapse."},
+    "nM4": {"x": 1410, "y": 2384, "w": 390, "fill": "orange", "text": "Anti-spam: one tap per device per 10 minutes, via a random daily device code. This is the ASSUMED answer to PROJECT.md decision #3 — confirm before building. It does NOT stop someone outside the room with a photo of the QR."},
+    "nM5": {"x": 1880, "y": 2384, "w": 390, "fill": "gray", "text": "Outside a scheduled slot, input is closed and the next lecture is shown. Stops off-hours noise from polluting a lecture's data."},
+    "tB": {"x": 0, "y": 3150, "kind": "title1", "maxW": 6000, "text": "Faculty · see where engagement dropped"},
+    "nF1": {"x": 0, "y": 4690, "w": 480, "fill": "gray", "text": "College email sign-in; role (faculty / coordinator / HOD) decides the landing page. Students never sign in anywhere."},
+    "nF2": {"x": 1520, "y": 4690, "w": 480, "fill": "gray", "text": "Today view answers 'how is my class going right now?' in one glance. 'Open a quick check' is the PRD's periodic prompt, triggered by faculty rather than a fixed hourly timer."},
+    "nF3": {"x": 3040, "y": 4690, "w": 480, "fill": "teal", "text": "The money screen. Topic markers turn a mood chart into a teaching insight: confusion spiked 7 min into Apriori and recovered after the worked example. Buckets with fewer than 5 taps are hidden to protect anonymity."},
+    "nF4": {"x": 4560, "y": 4690, "w": 480, "fill": "gray", "text": "Trends, not single data points (PRD risk: misreading one-offs). The heatmap shows WHERE in the hour confusion recurs across weeks."},
+    "tC": {"x": 0, "y": 5600, "kind": "title1", "maxW": 4980, "text": "Management · rooms, slots, QR codes"},
+    "nA1": {"x": 0, "y": 7040, "w": 480, "fill": "orange", "text": "Deliberately shows slots and rooms, never a faculty leaderboard. If it becomes a ranking tool, faculty stop opening quick checks and the data dies. Flag this as a design decision in the report."},
+    "nA2": {"x": 1520, "y": 7040, "w": 480, "fill": "gray", "text": "Regenerating a QR invalidates the old one — the fix when a photo of a desk QR leaks to a WhatsApp group."},
+    "nA3": {"x": 3040, "y": 7040, "w": 480, "fill": "gray", "text": "Timetable mapping is what makes anonymous taps analytically useful: room + time → course + faculty. CSV import keeps it maintainable (PRD assumption: schedule stays current)."},
+    "nA4": {"x": 4560, "y": 7040, "w": 420, "fill": "gray", "text": "A6 desk card, laminated. Promise of anonymity printed right next to the QR."}
+  },
+  "designSystems": []
+}

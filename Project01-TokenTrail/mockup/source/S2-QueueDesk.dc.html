@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Registration desk</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+input:focus,select:focus{outline:3px solid #9CC3EC;outline-offset:1px}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DDE2E9; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 17px; font-weight: 700;">TokenTrail</span>
+      <span style="font-size: 14px; color: #374151; border-left: 1px solid #DDE2E9; padding-left: 12px;">Registration Desk 2 · OPD Block B</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span style="display: flex; align-items: center; gap: 6px; color: #157F3B; font-weight: 500;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #157F3B;"></span>Live</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600;">Wed 4 Nov · 10:21</span>
+      <span style="color: #374151;">Kavya S.</span>
+      <a href="S1-Login.dc.html">End shift</a>
+    </div>
+  </header>
+
+  <div style="padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+
+    <section style="flex: 1 1 340px; max-width: 420px; display: flex; flex-direction: column; gap: 16px;">
+      <form style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h2 style="margin: 0; font-size: 18px;">New token</h2>
+          <span style="font-size: 13px; color: #4B5563;">Enter ↵ to create</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="dept" style="font-size: 13px; font-weight: 600;">Department</label>
+          <select id="dept" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;">
+            <option>General Medicine · B · Room 3</option>
+            <option>Paediatrics · C · Room 6</option>
+            <option>Gynaecology · D · Room 8</option>
+            <option>Dental · E · Room 11</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="pname" style="font-size: 13px; font-weight: 600;">Patient name</label>
+          <input id="pname" value="Mohammed Irfan" style="height: 44px; border: 2px solid #0A58A8; border-radius: 10px; padding: 0 12px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF;">
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+          <div style="display: flex; flex-direction: column; gap: 6px; grid-column: span 2;">
+            <label for="mob" style="font-size: 13px; font-weight: 600;">Mobile <span style="font-weight: 400; color: #4B5563;">(optional)</span></label>
+            <input id="mob" value="98451 22307" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 500 15px 'IBM Plex Mono', monospace; background: #FFFFFF;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label for="age" style="font-size: 13px; font-weight: 600;">Age</label>
+            <input id="age" value="41" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 500 15px 'IBM Plex Mono', monospace; background: #FFFFFF;">
+          </div>
+        </div>
+        <fieldset style="border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+          <legend style="font-size: 13px; font-weight: 600; padding: 0; margin-bottom: 8px;">Visit</legend>
+          <div style="display: flex; gap: 8px;">
+            <label style="flex: 1; height: 40px; border: 2px solid #0A58A8; background: #E7F0FA; color: #0A3F7A; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 14px; font-weight: 600;"><input type="radio" name="visit" checked style="margin: 0;">New</label>
+            <label style="flex: 1; height: 40px; border: 1px solid #C9D1DC; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 14px;"><input type="radio" name="visit" style="margin: 0;">Review</label>
+          </div>
+        </fieldset>
+        <label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.4;"><input type="checkbox" style="margin: 3px 0 0; width: 16px; height: 16px;">Priority as per OPD policy (senior citizen, pregnant, person with disability)</label>
+        <div style="background: #F3F5F8; border-radius: 10px; padding: 10px 12px; font-size: 14px; display: flex; justify-content: space-between;">
+          <span style="color: #374151;">Next token <b style="font-family: 'IBM Plex Mono', monospace; color: #0E1726;">B-053</b></span>
+          <span style="color: #374151;">Est. wait <b style="color: #0E1726;">60–75 min</b></span>
+        </div>
+        <a href="S3-TokenCreated.dc.html" style="height: 48px; border-radius: 12px; background: #0A58A8; color: #FFFFFF; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none;">Create token &amp; show QR</a>
+      </form>
+
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px;">
+        <h2 style="margin: 0; font-size: 15px;">Needs attention · 2</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 14px;"><b style="font-family: 'IBM Plex Mono', monospace;">B-035</b> Ravi Teja · missed turn 10:12</span>
+            <span style="font-size: 13px; color: #B42318;">No-show · 1 re-entry left</span>
+          </div>
+          <button type="button" style="height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9D1DC; background: #FFFFFF; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">Re-queue</button>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 14px;"><b style="font-family: 'IBM Plex Mono', monospace;">B-044</b> Gangamma · no smartphone</span>
+            <span style="font-size: 13px; color: #4B5563;">SMS alerts only · printed slip given</span>
+          </div>
+          <button type="button" style="height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9D1DC; background: #FFFFFF; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">Resend SMS</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;">
+        <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #4B5563;">Issued today</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 26px; font-weight: 600;">118</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #4B5563;">Waiting now</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 26px; font-weight: 600;">31</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #4B5563;">Avg wait, last hour</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 26px; font-weight: 600;">46 min</span></div>
+        <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #4B5563;">No-shows</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 26px; font-weight: 600;">4</span></div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; display: flex; flex-direction: column;">
+        <div role="tablist" aria-label="Departments" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 12px 0; border-bottom: 1px solid #DDE2E9;">
+          <button type="button" role="tab" aria-selected="true" style="border: 0; border-bottom: 3px solid #0A58A8; background: transparent; padding: 10px 14px; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">General Medicine <span style="background: #E7F0FA; color: #0A3F7A; border-radius: 999px; padding: 1px 8px; margin-left: 4px;">15</span></button>
+          <button type="button" role="tab" aria-selected="false" style="border: 0; border-bottom: 3px solid transparent; background: transparent; padding: 10px 14px; font: 500 14px 'IBM Plex Sans', sans-serif; color: #374151;">Paediatrics <span style="background: #ECEEF2; border-radius: 999px; padding: 1px 8px; margin-left: 4px;">8</span></button>
+          <button type="button" role="tab" aria-selected="false" style="border: 0; border-bottom: 3px solid transparent; background: transparent; padding: 10px 14px; font: 500 14px 'IBM Plex Sans', sans-serif; color: #374151;">Gynaecology <span style="background: #ECEEF2; border-radius: 999px; padding: 1px 8px; margin-left: 4px;">6</span></button>
+          <button type="button" role="tab" aria-selected="false" style="border: 0; border-bottom: 3px solid transparent; background: transparent; padding: 10px 14px; font: 500 14px 'IBM Plex Sans', sans-serif; color: #374151;">Dental <span style="background: #ECEEF2; border-radius: 999px; padding: 1px 8px; margin-left: 4px;">2</span></button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 20px;">
+          <span style="font-size: 14px; color: #374151;">Room 3 · Dr. Meera Iyer · now serving <b style="font-family: 'IBM Plex Mono', monospace; color: #0E1726;">B-037</b> · ~4.2 min per patient</span>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+            <span style="color: #4B5563;">Find</span>
+            <input aria-label="Find token or name" placeholder="Token or name" style="height: 36px; width: 180px; border: 1px solid #C9D1DC; border-radius: 8px; padding: 0 10px; font: 400 14px 'IBM Plex Sans', sans-serif;">
+          </label>
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px;">
+            <thead>
+              <tr style="text-align: left; color: #4B5563; font-size: 13px;">
+                <th style="padding: 10px 20px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Token</th>
+                <th style="padding: 10px 12px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Patient</th>
+                <th style="padding: 10px 12px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Age / Sex</th>
+                <th style="padding: 10px 12px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Visit</th>
+                <th style="padding: 10px 12px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Issued</th>
+                <th style="padding: 10px 12px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Alerts</th>
+                <th style="padding: 10px 20px; font-weight: 600; border-bottom: 1px solid #DDE2E9;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+                <tr style="background: {{r.rowBg}};">
+                  <td style="padding: 11px 20px; border-bottom: 1px solid #EEF1F5; font-family: 'IBM Plex Mono', monospace; font-weight: 600;">{{r.token}}</td>
+                  <td style="padding: 11px 12px; border-bottom: 1px solid #EEF1F5;">{{r.name}}<sc-if value="{{r.priority}}" hint-placeholder-val="{{false}}"><span style="margin-left: 8px; font-size: 12px; font-weight: 600; color: #5B21B6; background: #F1EBFD; border-radius: 6px; padding: 2px 6px;">Priority</span></sc-if></td>
+                  <td style="padding: 11px 12px; border-bottom: 1px solid #EEF1F5; color: #374151;">{{r.age}}</td>
+                  <td style="padding: 11px 12px; border-bottom: 1px solid #EEF1F5; color: #374151;">{{r.visit}}</td>
+                  <td style="padding: 11px 12px; border-bottom: 1px solid #EEF1F5; color: #374151; font-family: 'IBM Plex Mono', monospace;">{{r.issued}}</td>
+                  <td style="padding: 11px 12px; border-bottom: 1px solid #EEF1F5; color: #374151;">{{r.alerts}}</td>
+                  <td style="padding: 11px 20px; border-bottom: 1px solid #EEF1F5;"><span style="font-size: 13px; font-weight: 600; border-radius: 999px; padding: 3px 10px; background: {{r.chipBg}}; color: {{r.chipFg}};">{{r.status}}</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding: 12px 20px; font-size: 14px; color: #4B5563; display: flex; justify-content: space-between;">
+          <span>Showing 12 of 15 waiting</span>
+          <a href="#">Show all</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const C = {
+      room: ['#0A58A8', '#FFFFFF'], next: ['#0E1726', '#FFFFFF'], two: ['#E7F0FA', '#0A3F7A'],
+      five: ['#FDF1E2', '#7A3A04'], ten: ['#ECEEF2', '#1F2937'], wait: ['#FFFFFF', '#374151']
+    };
+    const raw = [
+      ['B-037', 'Fathima Begum', '34 / F', 'New', '09:31', '4 of 4', 'In Room 3', 'room'],
+      ['B-038', 'Suresh Gowda', '58 / M', 'Review', '09:33', '4 of 4', 'Next up', 'next'],
+      ['B-039', 'Ananya Prakash', '22 / F', 'New', '09:35', '3 of 4', '2 ahead', 'two'],
+      ['B-040', 'Venkatesh Rao', '71 / M', 'Review', '09:37', '3 of 4', '2 ahead', 'two', true],
+      ['B-041', 'Shabana Khan', '29 / F', 'New', '09:39', '2 of 4', '5 ahead', 'five'],
+      ['B-042', 'Manjunath H.', '45 / M', 'New', '09:40', '2 of 4', '5 ahead', 'five'],
+      ['B-043', 'Priya Sharma', '31 / F', 'Review', '09:42', '2 of 4', '5 ahead', 'five'],
+      ['B-044', 'Gangamma', '63 / F', 'New', '09:43', '1 of 4 · SMS', '10 ahead', 'ten'],
+      ['B-045', 'Rahul Nair', '27 / M', 'New', '09:45', '1 of 4', '10 ahead', 'ten'],
+      ['B-046', 'Deepa Kulkarni', '38 / F', 'Review', '09:46', '1 of 4', '10 ahead', 'ten'],
+      ['B-047', 'Lakshmi R.', '52 / F', 'New', '09:48', '1 of 4', '10 ahead', 'ten'],
+      ['B-048', 'Arjun Menon', '19 / M', 'New', '09:50', '—', 'Waiting', 'wait']
+    ];
+    const rows = raw.map((r) => ({
+      token: r[0], name: r[1], age: r[2], visit: r[3], issued: r[4], alerts: r[5], status: r[6],
+      chipBg: C[r[7]][0], chipFg: C[r[7]][1], priority: !!r[8], rowBg: r[7] === 'room' ? '#F5F9FE' : '#FFFFFF'
+    }));
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

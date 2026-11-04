@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clinic setup</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+input:focus,select:focus{outline:3px solid #9CC3EC;outline-offset:1px}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-wrap: wrap;">
+
+  <nav aria-label="Admin" style="flex: 1 1 220px; max-width: 260px; background: #0E1726; color: #FFFFFF; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 4px 8px 20px;">
+      <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 17px; font-weight: 700;">TokenTrail</span>
+    </div>
+    <a href="A1-DailySummary.dc.html" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Daily summary</a>
+    <a href="S2-QueueDesk.dc.html" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Live queues</a>
+    <a href="A2-Settings.dc.html" aria-current="page" style="display: block; padding: 10px 12px; border-radius: 10px; background: #1F2B40; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none;">Clinic setup</a>
+    <a href="#" style="display: block; padding: 10px 12px; border-radius: 10px; color: #C9D1DC; font-size: 15px; text-decoration: none;">Staff &amp; devices</a>
+    <span style="margin-top: auto; padding: 10px 12px; font-size: 13px; color: #C9D1DC;">Signed in as Dr. Anil Hegde<br>Medical Superintendent</span>
+  </nav>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; max-width: 1180px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <h1 style="margin: 0; font-size: 28px;">Clinic setup</h1>
+        <span style="font-size: 14px; color: #4B5563;">Changes apply to tokens issued after you save. Live tokens keep today's rules.</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button type="button" style="height: 42px; padding: 0 16px; border-radius: 10px; border: 1px solid #C9D1DC; background: #FFFFFF; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">Discard</button>
+        <button type="button" style="height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #0A58A8; font: 600 14px 'IBM Plex Sans', sans-serif; color: #FFFFFF;">Save changes</button>
+      </div>
+    </div>
+
+    <section style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; display: flex; flex-direction: column;">
+      <div style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+        <h2 style="margin: 0; font-size: 16px;">Departments &amp; rooms</h2>
+        <button type="button" style="height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid #C9D1DC; background: #FFFFFF; font: 600 14px 'IBM Plex Sans', sans-serif; color: #0E1726;">+ Add department</button>
+      </div>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px;">
+          <thead>
+            <tr style="text-align: left; color: #4B5563; font-size: 13px;">
+              <th style="padding: 10px 20px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Department</th>
+              <th style="padding: 10px 12px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Prefix</th>
+              <th style="padding: 10px 12px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Room · doctor</th>
+              <th style="padding: 10px 12px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Default consult</th>
+              <th style="padding: 10px 12px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Hours</th>
+              <th style="padding: 10px 20px; font-weight: 600; border-top: 1px solid #DDE2E9; border-bottom: 1px solid #DDE2E9;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{depts}}" as="d" hint-placeholder-count="4">
+              <tr>
+                <td style="padding: 12px 20px; border-bottom: 1px solid #EEF1F5; font-weight: 500;">{{d.name}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; font-family: 'IBM Plex Mono', monospace; font-weight: 600;">{{d.prefix}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; color: #374151;">{{d.room}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; font-family: 'IBM Plex Mono', monospace;">{{d.consult}}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #EEF1F5; color: #374151;">{{d.hours}}</td>
+                <td style="padding: 12px 20px; border-bottom: 1px solid #EEF1F5;"><span style="font-size: 13px; font-weight: 600; border-radius: 999px; padding: 3px 10px; background: {{d.bg}}; color: {{d.fg}};">{{d.status}}</span></td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px;">
+      <section style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0; font-size: 16px;">Patient alerts</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="a1" style="font-size: 13px; font-weight: 600;">First alert</label><input id="a1" value="10" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 600 16px 'IBM Plex Mono', monospace;"><span style="font-size: 12px; color: #4B5563;">people ahead</span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="a2" style="font-size: 13px; font-weight: 600;">Head back</label><input id="a2" value="5" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 600 16px 'IBM Plex Mono', monospace;"><span style="font-size: 12px; color: #4B5563;">people ahead</span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="a3" style="font-size: 13px; font-weight: 600;">Be ready</label><input id="a3" value="2" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 12px; font: 600 16px 'IBM Plex Mono', monospace;"><span style="font-size: 12px; color: #4B5563;">people ahead</span></div>
+        </div>
+        <label style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; border-top: 1px solid #EEF1F5; padding-top: 14px;">
+          <span style="display: flex; flex-direction: column; gap: 2px;"><b>Repeat reminder at 1 ahead</b><span style="color: #4B5563;">Only if the patient hasn't opened the page since the last alert</span></span>
+          <input type="checkbox" checked style="width: 20px; height: 20px;">
+        </label>
+        <label style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px;">
+          <span style="display: flex; flex-direction: column; gap: 2px;"><b>SMS backup</b><span style="color: #4B5563;">For patients without push permission or smartphone</span></span>
+          <input type="checkbox" checked style="width: 20px; height: 20px;">
+        </label>
+      </section>
+
+      <section style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0; font-size: 16px;">Turn rules</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="g" style="font-size: 13px; font-weight: 600;">Grace after call</label><select id="g" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;"><option>5 minutes</option><option>3 minutes</option><option>10 minutes</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="r" style="font-size: 13px; font-weight: 600;">Re-entries per token</label><select id="r" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;"><option>1</option><option>0</option><option>2</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="p" style="font-size: 13px; font-weight: 600;">Re-entry position</label><select id="p" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;"><option>After current patient</option><option>End of queue</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px;"><label for="v" style="font-size: 13px; font-weight: 600;">Token valid</label><select id="v" style="height: 44px; border: 1px solid #C9D1DC; border-radius: 10px; padding: 0 10px; font: 500 15px 'IBM Plex Sans', sans-serif; background: #FFFFFF; color: #0E1726;"><option>Day of issue</option></select></div>
+        </div>
+        <fieldset style="border: 0; padding: 0; margin: 0; border-top: 1px solid #EEF1F5; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px;">
+          <legend style="font-size: 13px; font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 4px;">Patient page languages</legend>
+          <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" checked disabled>English</label>
+          <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" checked>Kannada</label>
+          <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" checked>Hindi</label>
+          <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox">Tamil</label>
+        </fieldset>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1050}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const on = ['#E6F4EA', '#0F5C2B'], off = ['#ECEEF2', '#374151'];
+    const d = [
+      ['General Medicine', 'B', 'Room 3 · Dr. Meera Iyer', '4 min', '08:00–13:00', 'Active', on],
+      ['Paediatrics', 'C', 'Room 6 · Dr. Sanjay Patil', '5 min', '08:00–13:00', 'Active', on],
+      ['Gynaecology', 'D', 'Room 8 · Dr. Farah Siddiqui', '6 min', '09:00–12:30', 'Active', on],
+      ['Dental', 'E', 'Room 11 · Dr. Naveen K.', '8 min', '09:00–12:00', 'Active', on],
+      ['Ophthalmology', 'F', 'Room 14 · Thu &amp; Sat only', '7 min', '09:00–12:00', 'Off today', off]
+    ];
+    const depts = d.map((r) => ({ name: r[0], prefix: r[1], room: r[2].replace('&amp;', '&'), consult: r[3], hours: r[4], status: r[5], bg: r[6][0], fg: r[6][1] }));
+    return { depts };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TokenTrail overview</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; padding: 64px 72px; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 40px;">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+        <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.01em;">TokenTrail</span>
+        <span style="font-size: 13px; color: #4B5563; border: 1px solid #C9D1DC; border-radius: 999px; padding: 3px 10px;">Mockup v1 · 4 Nov 2026</span>
+      </div>
+      <h1 style="margin: 0; font-size: 52px; line-height: 1.08; font-weight: 700; letter-spacing: -0.02em;">Wait anywhere nearby.<br>Never miss your turn.</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #374151;">A virtual queue for government OPDs. Staff issue a token, the patient scans its QR, and a live page with 10 / 5 / 2-ahead alerts replaces standing in a crowded hall.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; text-align: right; font-size: 14px; color: #4B5563;">
+      <span style="font-weight: 600; color: #0E1726;">MCA III Sem · Mini Project 01</span>
+      <span>17 screens · 3 personas</span>
+      <span>Sample data only — not test evidence</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-size: 13px; font-weight: 600; color: #0A58A8; letter-spacing: 0.06em; text-transform: uppercase;">Patient · mobile web</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px;">
+        <span style="background: #E7F0FA; color: #0A3F7A; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P1 Live status</span>
+        <span style="background: #E7F0FA; color: #0A3F7A; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P2 10 ahead</span>
+        <span style="background: #FDF1E2; color: #7A3A04; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P3 5 ahead</span>
+        <span style="background: #E7F0FA; color: #0A3F7A; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P4 2 ahead</span>
+        <span style="background: #0A58A8; color: #FFFFFF; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P5 Your turn</span>
+        <span style="background: #E6F4EA; color: #0F5C2B; border-radius: 8px; padding: 6px 10px; font-weight: 500;">P7 Done</span>
+      </div>
+      <span style="font-size: 13px; color: #4B5563;">Edge states: P6 missed turn · P8 offline · P9 expired token</span>
+    </div>
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-size: 13px; font-weight: 600; color: #0A58A8; letter-spacing: 0.06em; text-transform: uppercase;">Staff · desk &amp; room</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px;">
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">S1 Sign in</span>
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">S2 Queue desk</span>
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">S3 Token QR</span>
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">S4 Print slip</span>
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">S5 Call next</span>
+      </div>
+      <span style="font-size: 13px; color: #4B5563;">Every 'Call next' press moves every patient's live page.</span>
+    </div>
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-size: 13px; font-weight: 600; color: #0A58A8; letter-spacing: 0.06em; text-transform: uppercase;">Administration</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px;">
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">A1 Daily summary</span>
+        <span style="background: #ECEEF2; border-radius: 8px; padding: 6px 10px; font-weight: 500;">A2 Clinic setup</span>
+      </div>
+      <span style="font-size: 13px; color: #4B5563;">KPIs map 1:1 to PRD §8 success metrics.</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; flex-grow: 1;">
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-size: 13px; font-weight: 600; color: #4B5563; letter-spacing: 0.06em; text-transform: uppercase;">Colour — one job each</span>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; font-size: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #0E1726;"></div><b>Ink</b><span style="color: #4B5563;">#0E1726 · text</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #0A58A8;"></div><b>Trail blue</b><span style="color: #4B5563;">#0A58A8 · action, progress</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #E7F0FA; border: 1px solid #C9DAF0;"></div><b>Blue tint</b><span style="color: #4B5563;">#E7F0FA · info</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #C2570C;"></div><b>Amber</b><span style="color: #4B5563;">#C2570C · act now</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #B42318;"></div><b>Red</b><span style="color: #4B5563;">#B42318 · missed</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><div style="height: 56px; border-radius: 10px; background: #157F3B;"></div><b>Green</b><span style="color: #4B5563;">#157F3B · done</span></div>
+      </div>
+      <span style="font-size: 13px; color: #4B5563; line-height: 1.5;">Amber is reserved for the single moment the patient must act (5 ahead). If everything is urgent, nothing is.</span>
+    </div>
+    <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 13px; font-weight: 600; color: #4B5563; letter-spacing: 0.06em; text-transform: uppercase;">Type</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 56px; font-weight: 600; line-height: 1;">B-047</span>
+      <span style="font-size: 13px; color: #4B5563;">IBM Plex Mono — token numbers. Fixed-width digits never shift as the queue moves.</span>
+      <span style="font-size: 20px; font-weight: 600;">IBM Plex Sans — everything else</span>
+      <span style="font-size: 13px; color: #4B5563;">Min 15 px on patient screens, 4.5:1 contrast throughout, 48 px touch targets.</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

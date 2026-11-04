@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Room console</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A58A8}a:hover{color:#0A3F7A}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #F3F5F8; color: #0E1726; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DDE2E9; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="9" fill="#0A58A8"></rect><path d="M10 13h16M18 13v12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path><circle cx="26" cy="24" r="3" fill="#F2A65A"></circle></svg>
+      <span style="font-size: 17px; font-weight: 700;">TokenTrail</span>
+      <span style="font-size: 14px; color: #374151; border-left: 1px solid #DDE2E9; padding-left: 12px;">Room 3 · General Medicine · Dr. Meera Iyer</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span style="display: flex; align-items: center; gap: 6px; color: #157F3B; font-weight: 500;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #157F3B;"></span>Queue running</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600;">10:51</span>
+      <span style="color: #374151;">Attendant: Ramesh B.</span>
+      <a href="S1-Login.dc.html">End shift</a>
+    </div>
+  </header>
+
+  <div style="padding: 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+    <section style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 13px; font-weight: 600; color: #4B5563; letter-spacing: 0.06em; text-transform: uppercase;">In the room · since 10:47</span>
+          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 48px; font-weight: 600; line-height: 1;">B-046</span>
+            <span style="font-size: 20px; font-weight: 600;">Deepa Kulkarni</span>
+            <span style="font-size: 15px; color: #374151;">38 / F · Review</span>
+          </div>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600; color: #374151; background: #F3F5F8; border-radius: 10px; padding: 8px 14px;">04:12</span>
+      </div>
+
+      <button type="button" style="width: 100%; min-height: 132px; border: 0; border-radius: 24px; background: #0A58A8; color: #FFFFFF; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; text-align: left; cursor: pointer;">
+        <span style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font: 600 15px 'IBM Plex Sans', sans-serif; opacity: 0.9;">Complete B-046 and call next</span>
+          <span style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+            <span style="font: 600 56px 'IBM Plex Mono', monospace; line-height: 1;">B-047</span>
+            <span style="font: 600 22px 'IBM Plex Sans', sans-serif;">Lakshmi R. · 52 / F</span>
+          </span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 10px; font: 600 18px 'IBM Plex Sans', sans-serif;">
+          Call next
+          <span style="font: 600 14px 'IBM Plex Mono', monospace; border: 1px solid #9CC3EC; border-radius: 6px; padding: 2px 8px;">N</span>
+        </span>
+      </button>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+        <button type="button" style="height: 56px; border-radius: 14px; border: 1px solid #C9D1DC; background: #FFFFFF; color: #0E1726; font: 600 15px 'IBM Plex Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px;">Recall B-046 <span style="font: 600 12px 'IBM Plex Mono', monospace; color: #4B5563; border: 1px solid #C9D1DC; border-radius: 5px; padding: 1px 6px;">R</span></button>
+        <button type="button" style="height: 56px; border-radius: 14px; border: 1px solid #F1B5AE; background: #FFFFFF; color: #B42318; font: 600 15px 'IBM Plex Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px;">Mark no-show <span style="font: 600 12px 'IBM Plex Mono', monospace; border: 1px solid #F1B5AE; border-radius: 5px; padding: 1px 6px;">M</span></button>
+        <button type="button" style="height: 56px; border-radius: 14px; border: 1px solid #C9D1DC; background: #FFFFFF; color: #0E1726; font: 600 15px 'IBM Plex Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px;">Pause queue (break) <span style="font: 600 12px 'IBM Plex Mono', monospace; color: #4B5563; border: 1px solid #C9D1DC; border-radius: 5px; padding: 1px 6px;">P</span></button>
+      </div>
+      <span style="font-size: 14px; color: #4B5563;">Pausing tells every waiting patient "Doctor on a short break — your place is held" and stops the wait estimate from counting down.</span>
+    </section>
+
+    <aside style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;">
+        <h2 style="margin: 0 0 8px; font-size: 15px;">Up next</h2>
+        <sc-for list="{{next}}" as="n" hint-placeholder-count="5">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #EEF1F5;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 15px;">{{n.t}}</span>
+              <span style="font-size: 14px;">{{n.name}}</span>
+            </div>
+            <span style="font-size: 13px; font-weight: 500; color: {{n.fg}};">{{n.state}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 18px 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; color: #4B5563;">Seen today</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600;">31</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; color: #4B5563;">Avg consult</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600;">4.2 m</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 12px; color: #4B5563;">No-shows</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600;">2</span></div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #DDE2E9; border-radius: 16px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+        <h2 style="margin: 0; font-size: 15px;">Activity</h2>
+        <span style="color: #374151;"><b style="font-family: 'IBM Plex Mono', monospace; color: #0E1726;">10:47</b> B-046 called · tapped "On my way" 10:48</span>
+        <span style="color: #374151;"><b style="font-family: 'IBM Plex Mono', monospace; color: #0E1726;">10:43</b> B-045 completed</span>
+        <span style="color: #374151;"><b style="font-family: 'IBM Plex Mono', monospace; color: #0E1726;">10:12</b> B-035 marked no-show (5 min grace ended)</span>
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const next = [
+      { t: 'B-047', name: 'Lakshmi R.', state: 'Page open · 1 ahead', fg: '#0A3F7A' },
+      { t: 'B-048', name: 'Arjun Menon', state: '2 ahead alert sent', fg: '#374151' },
+      { t: 'B-049', name: 'Kiran Bhat', state: '5 ahead alert sent', fg: '#374151' },
+      { t: 'B-050', name: 'Sunitha M.', state: 'SMS only', fg: '#374151' },
+      { t: 'B-051', name: 'Abdul Rehman · Priority', state: '5 ahead alert sent', fg: '#374151' }
+    ];
+    return { next };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Faculty today</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#4F3BC9}a:hover{color:#3A2A9E}
+</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; background: #FFF6DC; color: #111111; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="background: #FFFFFF; border-bottom: 2px solid #111111; padding: 12px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="28" height="28" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#4F3BC9"></rect><path d="M7 19h5l3-7 4 12 3-7h7" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span style="font-size: 17px; font-weight: 800;">MoodPulse</span>
+      </div>
+      <nav aria-label="Faculty" style="display: flex; gap: 4px; font-size: 14px; font-weight: 600;">
+        <a href="F2-Today.dc.html" aria-current="page" style="padding: 8px 12px; border-radius: 10px; background: #C8F55A; color: #111111; border: 2px solid #111111; border-radius: 999px; text-decoration: none;">Today</a>
+        <a href="F4-CourseTrend.dc.html" style="padding: 8px 12px; border-radius: 10px; color: #3B3950; text-decoration: none;">My courses</a>
+      </nav>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
+      <span style="font-weight: 700;">Wed 4 Nov · 10:28</span>
+      <span style="color: #3B3950;">Prof. K. Raghavendra</span>
+      <a href="F1-Login.dc.html">Sign out</a>
+    </div>
+  </header>
+
+  <main style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px;">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 800;">Good morning, Prof. Raghavendra</h1>
+      <span style="font-size: 14px; color: #55536B;">3 lectures today · 1 live</span>
+    </div>
+
+    <section aria-label="Live lecture" style="background: #FFFFFF; border: 2px solid #111111; box-shadow: 6px 6px 0 #111111; border-radius: 26px; padding: 24px 26px; display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #3A2A9E;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4F3BC9;"></span>LIVE · 10:00–10:55 · Room C-204</span>
+          <span style="font-size: 24px; font-weight: 800;">Data Mining · MCA III Sem A</span>
+          <span style="font-size: 14px; color: #3B3950;">80 taps from 46 phones · 74% of 62 enrolled</span>
+        </div>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #8A3208; background: #FDEFE3; border: 1px solid #F3C29A; border-radius: 12px; padding: 8px 12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+          Lost + Confused at 69% in the last 10 min
+        </span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 13px; font-weight: 600; color: #55536B;">So far this lecture</span>
+        <div role="img" aria-label="{{live.aria}}" style="display: flex; gap: 2px; height: 28px;">
+          <sc-for list="{{live.segs}}" as="s" hint-placeholder-count="5">
+            <span title="{{s.tip}}" style="flex: {{s.n}}; background: {{s.c}}; border-radius: {{s.r}};"></span>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px;">
+          <sc-for list="{{live.segs}}" as="s" hint-placeholder-count="5">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; border-radius: 3px; background: {{s.c}};"></span>{{s.label}} <b>{{s.pct}}</b></span>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <button type="button" style="height: 46px; padding: 0 20px; border-radius: 999px; border: 2px solid #111111; background: #111111; color: #FFFFFF; font: 700 15px 'Plus Jakarta Sans', sans-serif;">Open a quick check · 2 min</button>
+        <button type="button" style="height: 46px; padding: 0 18px; border-radius: 12px; border: 2px solid #111111; background: #FFFFFF; color: #19172B; font: 600 15px 'Plus Jakarta Sans', sans-serif;">+ Topic marker</button>
+        <a href="F3-LectureDetail.dc.html" style="height: 46px; padding: 0 18px; border-radius: 12px; border: 2px solid #111111; color: #19172B; font-size: 15px; font-weight: 600; display: flex; align-items: center; text-decoration: none;">Open timeline →</a>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px;">
+      <sc-for list="{{others}}" as="o" hint-placeholder-count="2">
+        <section style="background: #FFFFFF; border: 2px solid #111111; border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; justify-content: space-between; gap: 12px;">
+            <span style="font-size: 13px; font-weight: 700; color: #55536B;">{{o.when}}</span>
+            <span style="font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 10px; background: {{o.chipBg}}; color: {{o.chipFg}};">{{o.state}}</span>
+          </div>
+          <span style="font-size: 18px; font-weight: 800;">{{o.title}}</span>
+          <span style="font-size: 14px; color: #3B3950;">{{o.meta}}</span>
+          <sc-if value="{{o.hasData}}" hint-placeholder-val="{{true}}">
+            <div role="img" aria-label="{{o.aria}}" style="display: flex; gap: 2px; height: 14px;">
+              <sc-for list="{{o.segs}}" as="s" hint-placeholder-count="5">
+                <span title="{{s.tip}}" style="flex: {{s.n}}; background: {{s.c}}; border-radius: {{s.r}};"></span>
+              </sc-for>
+            </div>
+          </sc-if>
+          <span style="font-size: 13px; color: #55536B;">{{o.foot}}</span>
+        </section>
+      </sc-for>
+    </div>
+
+    <section style="background: #FFE45C; border: 2px solid #111111; border-radius: 22px; padding: 20px 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #55536B;">Lectures pulsed this week</span><span style="font-size: 28px; font-weight: 800;">7</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #55536B;">Avg participation</span><span style="font-size: 28px; font-weight: 800;">74%</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #55536B;">Following + Engaged</span><span style="font-size: 28px; font-weight: 800;">57%</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 13px; color: #55536B;">Most common pace flag</span><span style="font-size: 28px; font-weight: 800;">Too fast</span></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const L = ['Lost', 'Confused', 'Okay', 'Following', 'Engaged'];
+    const C = ['#C2410C', '#F08C2E', '#B9B5C4', '#5E8FEA', '#1F4FBF'];
+    const bar = (counts) => {
+      const t = counts.reduce((a, b) => a + b, 0);
+      const segs = counts.map((n, i) => ({ n, c: C[i], label: L[i], pct: Math.round(n / t * 100) + '%',
+        tip: L[i] + ': ' + n + ' taps (' + Math.round(n / t * 100) + '%)',
+        r: i === 0 ? '6px 0 0 6px' : (i === counts.length - 1 ? '0 6px 6px 0' : '0') }));
+      return { segs, aria: segs.map((s) => s.label + ' ' + s.pct).join(', ') };
+    };
+    const live = bar([8, 20, 15, 22, 15]);
+    const dw = bar([4, 9, 14, 20, 11]);
+    const others = [
+      { when: '09:00–09:55 · Room C-102', title: 'Data Warehousing · MCA I Sem B', meta: '58 taps from 41 phones · 68% of 60 enrolled', state: 'Ended', chipBg: '#EEEDF3', chipFg: '#3B3950', hasData: true, segs: dw.segs, aria: dw.aria, foot: 'Steady all hour · lowest point 09:35 (Okay 40%)' },
+      { when: '11:10–12:05 · Room C-206', title: 'Data Mining · MCA III Sem B', meta: '58 enrolled · same topic as Section A', state: 'Upcoming', chipBg: '#EEEBFB', chipFg: '#3A2A9E', hasData: false, segs: [], aria: '', foot: 'Tip: Section A struggled with Apriori candidate generation — a worked example first may help.' }
+    ];
+    return { live, others };
+  }
+}
+</script>
+</body>
+</html>
